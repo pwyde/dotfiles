@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="2670"
+   height="715"
+   viewBox="0 0 2670 715.00003"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.4 5da689c313, 2019-01-14"
+   sodipodi:docname="dotfiles-banner.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.09803922"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.73370787"
+     inkscape:cx="1335"
+     inkscape:cy="357.5"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     inkscape:pagecheckerboard="true"
+     inkscape:snap-bbox="false"
+     inkscape:bbox-paths="false"
+     inkscape:bbox-nodes="false"
+     inkscape:snap-page="true"
+     inkscape:window-width="2504"
+     inkscape:window-height="1410"
+     inkscape:window-x="56"
+     inkscape:window-y="30"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:snap-object-midpoints="false"
+     inkscape:object-paths="true" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-407.51959)">
+    <rect
+       style="opacity:1;fill:#aaaaac;fill-opacity:1;stroke:none;stroke-width:3.95520902;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="bg"
+       width="2670"
+       height="715"
+       x="0"
+       y="407.51959"
+       ry="50"
+       rx="50"
+       inkscape:label="banner-bg" />
+    <rect
+       style="opacity:1;fill:#1e1e20;fill-opacity:1;stroke:none;stroke-width:7.18134689;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="console-bg"
+       width="2470"
+       height="300"
+       x="100"
+       y="722.51959"
+       rx="50"
+       ry="50"
+       inkscape:label="console-bg" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48px;line-height:1.25;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       x="777.49335"
+       y="819.37299"
+       id="ls"
+       inkscape:label="ls"><tspan
+         sodipodi:role="line"
+         id="tspan4579"
+         x="777.49335"
+         y="819.37299"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:53.33333206px;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro Bold';fill:#bebec0;fill-opacity:1">drwxr-xr-x  patrik users 5,0M  9 Sep 2019 .config</tspan><tspan
+         sodipodi:role="line"
+         x="777.49335"
+         y="886.03967"
+         id="tspan4583"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:53.33333206px;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro Bold';fill:#bebec0;fill-opacity:1">-rw-r--r--  patrik users 1,2K  9 Sep 2019 .Xresources</tspan><tspan
+         sodipodi:role="line"
+         x="777.49335"
+         y="952.7063"
+         id="tspan4585"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:53.33333206px;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro Bold';fill:#bebec0;fill-opacity:1">-rw-r--r--  patrik users  10K  9 Sep 2019 .shellrc</tspan></text>
+    <g
+       transform="matrix(15,0,0,15,80,397.51957)"
+       id="icon"
+       inkscape:label="icon">
+      <path
+         id="path2"
+         d="M 10,5 C 8.892,5 8,5.892 8,7 v 36 c 0,1.108 0.892,2 2,2 h 28 c 1.108,0 2,-0.892 2,-2 V 17 L 29,16 28,5 Z"
+         style="opacity:0.2"
+         inkscape:connector-curvature="0" />
+      <path
+         id="path4"
+         d="M 10,4 C 8.892,4 8,4.892 8,6 v 36 c 0,1.108 0.892,2 2,2 h 28 c 1.108,0 2,-0.892 2,-2 V 16 L 29,15 28,4 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#4f4f4f" />
+      <path
+         id="path6"
+         d="M 10,4 C 8.892,4 8,4.892 8,6 V 7 C 8,5.892 8.892,5 10,5 h 18 l 11,11 h 1 L 28,4 Z"
+         inkscape:connector-curvature="0"
+         style="opacity:0.1;fill:#ffffff" />
+      <path
+         id="path8"
+         d="m 28,5 v 10 c 0,1.1046 0.89543,2 2,2 h 10 z"
+         style="opacity:0.2"
+         inkscape:connector-curvature="0" />
+      <path
+         id="path10"
+         d="m 28,4 v 10 c 0,1.1046 0.89543,2 2,2 h 10 z"
+         inkscape:connector-curvature="0"
+         style="fill:#696969" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       x="248.95854"
+       y="936.91962"
+       id="icon-text"
+       inkscape:label="icon-text"><tspan
+         sodipodi:role="line"
+         id="tspan4593-5"
+         x="248.95854"
+         y="936.91962"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:160px;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro Heavy';fill:#dcdcde;fill-opacity:1">~/.*</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       x="752.52264"
+       y="670.7276"
+       id="heading"
+       inkscape:label="heading"><tspan
+         sodipodi:role="line"
+         id="tspan4587"
+         x="752.52264"
+         y="670.7276"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:160px;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro Bold';fill:#1e1e20;fill-opacity:1">.dotfiles</tspan></text>
+  </g>
+</svg>
