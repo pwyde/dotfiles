@@ -111,6 +111,8 @@ Bootstrap script will scan the root of the home directory (`~/`) for known dotfi
 
 I enjoy working with the command-line and I do it with [**Zsh**](http://zsh.sourceforge.net/Intro/intro_1.html).
 
+![Preview of my Zsh configuration](screenshots/zsh-preview.png "Preview of my Zsh configuration")
+
 ## Plugin Manager - Zinit
 
 [**Zinit**](https://github.com/zdharma/zinit) is a flexible and fast Zsh plugin manager.
