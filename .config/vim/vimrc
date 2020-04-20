@@ -1,0 +1,33 @@
+" ~/.vim/vimrc
+"
+"        ________ ++     ________
+"       /VVVVVVVV\++++  /VVVVVVVV\
+"       \VVVVVVVV/++++++\VVVVVVVV/
+"        |VVVVVV|++++++++/VVVVV/'
+"        |VVVVVV|++++++/VVVVV/'
+"       +|VVVVVV|++++/VVVVV/'+
+"     +++|VVVVVV|++/VVVVV/'+++++
+"   +++++|VVVVVV|/VVV___++++++++++
+"     +++|VVVVVVVVVV/##/ +_+_+_+_
+"       +|VVVVVVVVV___ +/#_#,#_#,\
+"        |VVVVVVV//##/+/#/+/#/'/#/
+"        |VVVVV/'+/#/+/#/+/#/ /#/
+"        |VVV/'++/#/+/#/ /#/ /#/
+"        'V/'  /##//##//##//###/
+"                 ++
+"
+" Maintained by Patrik Wyde <patrik@wyde.se>
+" https://github.com/pwyde
+
+if filereadable(expand("$XDG_CONFIG_HOME/vim/general.vim"))
+    source $XDG_CONFIG_HOME/vim/general.vim
+endif
+if filereadable(expand("$XDG_CONFIG_HOME/vim/keybindings.vim"))
+    source $XDG_CONFIG_HOME/vim/keybindings.vim
+endif
+if filereadable(expand("$XDG_CONFIG_HOME/vim/plugins.vim"))
+    source $XDG_CONFIG_HOME/vim/plugins.vim
+endif
+if filereadable(expand("$XDG_CONFIG_HOME/vim/ui.vim"))
+    source $XDG_CONFIG_HOME/vim/ui.vim
+endif
