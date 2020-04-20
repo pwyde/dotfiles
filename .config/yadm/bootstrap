@@ -1,0 +1,362 @@
+#!/usr/bin/env bash
+
+# VARIABLES/CONSTANTS ##########################################################
+
+# Variables for dotfiles repo.
+git_host="github.com"
+git_user="pwyde"
+git_repo="dotfiles"
+git_url="https://${git_host}/${git_user}/"
+
+# Variables for temporary files/directories.
+temp_file="$(mktemp -u)"
+temp_dir="$(mktemp -d)"
+
+# Set XDG directories.
+export XDG_CONFIG_HOME="${HOME}/.config"
+export XDG_CACHE_HOME="${HOME}/.cache"
+export XDG_DATA_HOME="${HOME}/.local/share"
+
+# Set Zsh configuration directory.
+export ZDOTDIR="${HOME}/.config/zsh"
+# Set Vim configuration directory.
+export VIMINIT=":source $XDG_CONFIG_HOME/vim/vimrc"
+
+# Set user bin directory.
+export USER_BIN_DIR="${HOME}/.local/bin"
+
+## Colorize output.
+# shellcheck disable=SC2034
+red="\033[91m"
+# shellcheck disable=SC2034
+green="\033[92m"
+# shellcheck disable=SC2034
+blue="\033[94m"
+# shellcheck disable=SC2034
+yellow="\033[93m"
+# shellcheck disable=SC2034
+white="\033[97m"
+# shellcheck disable=SC2034
+no_color="\033[0m"
+
+# ARRAYS #######################################################################
+
+# Array for package dependencies.
+pkg_list=("git"
+          "zsh"
+          "vim"
+          "curl"
+          "ranger"
+          "fzf"
+          "thefuck"
+          "unzip")
+
+# FUNCTIONS ####################################################################
+
+print_header() {
+    echo -e "${blue}
+       _     _   ___ _ _
+     _| |___| |_|  _|_| |___ ___
+   _| . | . |  _|  _| | | -_|_ -|
+  |_|___|___|_| |_| |_|_|___|___|${yellow}
+  BOOTSTRAP SCRiPT${white}
+
+  ${git_url}${git_repo}${no_color}
+" >&1
+}
+
+print_footer() {
+    echo -e "${blue}
+  Bootstrap of dotfiles completed!${yellow}
+  Log out${blue} and${yellow} login${blue} to apply changes!${white}
+
+  See README for more information;
+  ${git_url}${git_repo}/.github/README.md${no_color}
+" >&1
+}
+
+print_msg() {
+    echo -e "${green}=>${no_color}${white}" "${@}" "${no_color}" >&1
+}
+
+print_error() {
+    echo -e "${red}=> ERROR:${no_color}${white}" "${@}" "${no_color}" >&2
+}
+
+cleanup_tmp() {
+    rm -rf "${temp_file}" "${temp_dir}"
+}
+
+pac_install() {
+    print_msg "Updating package database..."
+    sudo pacman -Sy
+    # Specify Arch based distribution specific GVim package.
+    vim_gui_pkg="gvim"
+    install_vim
+    print_msg "Installing package dependencies..."
+    sudo pacman -S --noconfirm "${pkg_list[@]}"
+}
+
+deb_install() {
+    print_msg "Updating package database..."
+    sudo apt update
+    # Specify Debian/Ubuntu based distribution specific GVim package.
+    vim_gui_pkg="vim-gtk3"
+    install_vim
+    # Remove 'thefuck' from pkg_list. Will be installed using pip instead.
+    pkg_list=("${pkg_list[@]/thefuck}")
+    # Remove 'fzf' from pkg_list. Will be installed using git instead.
+    pkg_list=("${pkg_list[@]/fzf}")
+    print_msg "Installing package dependencies..."
+    sudo apt install --yes "${pkg_list[@]}"
+}
+
+vim_options() {
+    echo -e "${yellow}
+  Options for Vim installation.${no_color}
+" >&1
+    echo -e "${yellow}  1)${white} Basic. Install standard Vim package.${no_color}" >&1
+    echo -e "${yellow}  2)${white} GUI. Install Vim with GTK3 GUI.${no_color}" >&1
+    echo
+}
+
+install_vim() {
+    # Check if Xorg display server is installed. If true, offer Vim installation
+    # options.
+    if [[ -e $(command -v Xorg) || -e $(command -v startx) ]]; then
+        vim_options
+        while [ -z "${vim_option}" ]; do
+            echo -en "${white}  Option${yellow} [1/2]${white}: ${no_color}"
+            read -r opt
+            echo
+            case "${opt}" in
+                [1]*) vim_option=1 ;;
+                [2]*) vim_option=2 ;;
+                *) echo -e "Invalid option '${opt}'." >&2; vim_options ;;
+            esac
+        done
+        if [ "${vim_option}" = 2 ]; then
+            # Replace standard Vim package with GTK3 GUI version.
+            pkg_list=("${pkg_list[@]/vim/$vim_gui_pkg}")
+        fi
+    fi
+}
+
+# Only used on Debian/Ubuntu based distributions.
+install_thefuck() {
+    print_msg "Installing thefuck using pip..."
+    sudo apt install --yes python3-dev python3-pip python3-setuptools
+    sudo --set-home pip3 install thefuck
+}
+
+# Only used on Debian/Ubuntu based distributions.
+install_fzf() {
+    print_msg "Installing fzf using git..."
+    git clone --depth 1 https://github.com/junegunn/fzf.git "${temp_dir}/fzf"
+    "${temp_dir}/fzf/install" --bin --xdg --no-bash --no-zsh
+    # Install fzf in user's bin directory; $HOME/bin
+    if [ -e "${temp_dir}/fzf/bin/fzf" ]; then
+        mkdir -p "${USER_BIN_DIR}" && mv "${temp_dir}/fzf/bin/fzf" "${USER_BIN_DIR}"
+    else
+        print_error "Unable to install fzf!"
+    fi
+}
+
+install_pkgs() {
+    # Operating system identification. For more information, see
+    # https://www.freedesktop.org/software/systemd/man/os-release.html
+    if [[ "${OSTYPE}" = linux-gnu* ]]; then
+        # shellcheck disable=SC1091
+        [ -f "/etc/os-release" ] && source /etc/os-release
+        case "${NAME}" in
+            *Arch*)
+                print_msg "Operating system identified as '$NAME'.";
+                pac_install
+                ;;
+            *Manjaro*)
+                print_msg "Operating system identified as '$NAME'.";
+                pac_install
+                ;;
+            *Chakra*)
+                print_msg "Operating system identified as '$NAME'.";
+                pac_install
+                ;;
+            *Ubuntu*)
+                print_msg "Operating system identified as '$NAME'.";
+                deb_install && install_thefuck && install_fzf
+                ;;
+            *Debian*)
+                print_msg "Operating system identified as '$NAME'.";
+                deb_install && install_thefuck && install_fzf
+                ;;
+            *Mint*)
+                print_msg "Operating system identified as '$NAME'.";
+                deb_install && install_thefuck && install_fzf
+                ;;
+            *neon*)
+                print_msg "Operating system identified as '$NAME'.";
+                deb_install && install_thefuck && install_fzf
+                ;;
+            *Raspbian*)
+                print_msg "Operating system identified as '$NAME'.";
+                deb_install && install_thefuck
+                ;;
+            *)
+                print_error "Unable to identify operating system! Could not install packages...";
+                exit 1
+                ;;
+        esac
+    else
+        print_error "Unsupported operating system! Could not install packages..."
+        exit 1
+    fi
+}
+
+bootstrap_zsh() {
+    print_msg "Bootstrapping Zsh..."
+    # Array for Zsh configuration directory/files.
+    zsh_dotfiles=(".zsh" ".zlogin" ".zlogout" ".zprofile" ".zshenv" ".zshrc")
+    # Delete default Zsh configuration files if present.
+    for file in "${zsh_dotfiles[@]}"; do
+        [ -e "${HOME}/${file}" ] && rm -rf "${HOME:?}/${file}" >/dev/null 2>&1
+    done
+    # Create symlinks to Zsh configuration files. Apparently this is needed.
+    ln -sf "${ZDOTDIR}/zlogin"    "${ZDOTDIR}/.zlogin"
+    ln -sf "${ZDOTDIR}/zlogout"   "${ZDOTDIR}/.zlogout"
+    ln -sf "${ZDOTDIR}/zshenv"    "${ZDOTDIR}/.zshenv"
+    ln -sf "${ZDOTDIR}/zshrc"     "${ZDOTDIR}/.zshrc"
+    print_msg "Set Zsh as default shell..."
+    # Set default shell to Zsh.
+    chsh -s "$(command -v zsh)"
+    print_msg "Adding system-wide Zsh configuration options..."
+    # Set path to Zsh configuration files (system-wide configuration). We want
+    # to do this to avoid as many dotfiles as possible in user home directory.
+    # shellcheck disable=SC2016
+    echo 'export ZDOTDIR="${HOME}/.config/zsh"' | \
+    sudo tee --append /etc/zsh/zshenv >/dev/null 2>&1
+}
+
+bootstrap_vim() {
+    print_msg "Bootstrapping Vim..."
+    # Array for Vim configuration diretcory/files.
+    vim_dotfiles=(".vim" ".vimrc" ".viminfo")
+    # Delete default Vim configuration files if present.
+    for file in "${vim_dotfiles[@]}"; do
+        [ -e "${HOME}/${file}" ] && rm -rf "${HOME:?}/${file}" >/dev/null 2>&1
+    done
+    # Create viminfo file to avoid errors from startify plugin.
+    mkdir -p "${XDG_DATA_HOME}/vim" && touch "${XDG_DATA_HOME}/vim/viminfo"
+    print_msg "Installing vim-plug..."
+    # Install vim-plug and plugins.
+    [ ! -e "${XDG_CONFIG_HOME}/vim/autoload/plug.vim" ] && \
+    curl -fLo "${XDG_CONFIG_HOME}/vim/autoload/plug.vim" --create-dirs \
+    "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" --progress-bar && \
+    vim '+PlugUpdate' '+PlugClean!' '+PlugUpdate' '+qall'
+}
+
+font_options() {
+    echo -e "${yellow}
+  Options for font installation.${no_color}
+" >&1
+    echo -e "${yellow}  1)${white} None. Do not install any fonts.${no_color}" >&1
+    echo -e "${yellow}  2)${white} Basic. Install only the 'Nerd Fonts Source Code Pro' font family.${no_color}" >&1
+    echo -e "${yellow}  3)${white} Complete. Install the complete collection of 'Nerd Fonts'.${no_color}" >&1
+    echo
+}
+
+install_fonts() {
+    font_options
+    while [ -z "${font_option}" ]; do
+        echo -en "${white}  Option${yellow} [1/2/3]${white}: ${no_color}"
+        read -r opt
+        echo
+        case "${opt}" in
+            [1]*) font_option=1 ;;
+            [2]*) font_option=2; font_name="SourceCodePro" font_dir="${XDG_DATA_HOME}/fonts/${font_name}" \
+                  font_dl_url="https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/${font_name}.zip" ;;
+            [3]*) font_option=3; font_name="NerdFonts" font_dl_url="https://github.com/ryanoasis/nerd-fonts.git" ;;
+            *) echo -e "Invalid option '${opt}'." >&2; font_options ;;
+        esac
+    done
+    if [ "${font_option}" = 1 ]; then
+        print_msg "Skipping font installation..."
+    elif [ "${font_option}" = 2 ]; then
+        # Create font directory if it does not exist.
+        mkdir -p "${font_dir}"
+        print_msg "Downloading '${font_name}' fonts..."
+        # Download font family and extract excluding Windows compatible fonts.
+        curl -fLo "${temp_file}" "${font_dl_url}" --progress-bar
+        print_msg "Installing fonts..."
+        unzip -q "${temp_file}" -x "*Windows*" -d "${temp_dir}"
+        cp "${temp_dir}"/*.ttf "${font_dir}"
+        fc-cache -f -v >/dev/null 2>&1
+    elif [ "${font_option}" = 3 ]; then
+        print_msg "Downloading '$font_name'..."
+        # Install the complete Nerd Fonts font collection.
+        git clone --depth 1 "${font_dl_url}" "${temp_dir}/${font_name}"
+        print_msg "Installing fonts..."
+        "${temp_dir}/${font_name}/install.sh" --quiet >/dev/null 2>&1
+    fi
+}
+
+cleanup_options() {
+    echo -e "${yellow}
+  Cleanup home directory?${no_color}
+" >&1
+    echo -e "${yellow}  y)${white} Yes. This removes unused dotfiles.${no_color}" >&1
+    echo -e "${yellow}  n)${white} No. Skip this step and leave all existing dotfiles as is.${no_color}" >&1
+    echo
+}
+
+cleanup_home() {
+    # Array for common dotfiles.
+    dotfiles=(".bash_history" ".bash_logout" ".bash_profile" ".bashrc" \
+    ".dircolors" ".dir_colors" ".gconf" ".gitconfig" ".kde" ".kde4" ".profile" \
+    ".vim" ".viminfo" ".vimrc" ".zlogin" ".zlogout" ".zprofile" ".zshenv" \
+    ".zshrc")
+    found=0 # Set to 1 if file found in the for loop.
+    # Find any pre-esisting dotfiles.
+    for file in "${dotfiles[@]}"; do
+        if [ -e "${HOME}/${file}" ]; then
+            found=1; break
+        fi
+    done
+    # If true, offer to cleanup home directory.
+    if [ "${found}" = 1 ]; then
+        cleanup_options
+        while [ -z "${cleanup_option}" ]; do
+            echo -en "${white}  Option${yellow} [y/n]${white}: ${no_color}"
+            read -r opt
+            echo
+            case "${opt}" in
+                [y]|[Y]*) cleanup_option=1 ;;
+                [n]|[N]*) cleanup_option=2 ;;
+                *) echo -e "Invalid option '${opt}'." >&2; cleanup_options ;;
+            esac
+        done
+        if [ "${cleanup_option}" = 1 ]; then
+            print_msg "Cleaning home directory..."
+            # Cleanup user's home directory.
+            for file in "${dotfiles[@]}"; do
+                [ -e "${HOME}/${file}" ] && rm -ri "${HOME:?}/${file}"
+            done
+        fi
+    fi
+}
+
+update_yadm_repo() {
+    print_msg "Updating the yadm repo origin URL..."
+    yadm remote set-url origin "git@${git_host}:${git_user}/${git_repo}.git"
+}
+
+# EXECUTE FUNCTIONS ############################################################
+
+print_header
+install_pkgs
+bootstrap_zsh
+bootstrap_vim
+install_fonts
+cleanup_home
+update_yadm_repo
+cleanup_tmp
+print_footer
