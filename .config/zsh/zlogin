@@ -1,0 +1,18 @@
+#
+#  ~/.zlogin
+#         _         _
+#     ___| |___ ___|_|___
+#   _|- _| | . | . | |   |
+#  |_|___|_|___|_  |_|_|_|
+#              |___|
+
+# Compile ~/.zcompdump, if modified, to increase startup speed. This will be
+# executed during start of login shell and run in background to not affect
+# surrent sesison. For more information, see
+# https://htr3n.github.io/2018/07/faster-zsh/
+{
+    zcompdump="${ZDOTDIR:-$HOME}/.zcompdump"
+    if [[ -s "$zcompdump" && (! -s "${zcompdump}.zwc" || "$zcompdump" -nt "${zcompdump}.zwc") ]]; then
+        zcompile "$zcompdump"
+    fi
+} &!
