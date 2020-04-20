@@ -62,7 +62,7 @@ For more information, see [this](https://wiki.archlinux.org/index.php/XDG_Base_D
 
 ## Bootstrap Script
 
-[yadm](https://yadm.io/) has a built-in [**bootstrap**](https://yadm.io/docs/bootstrap) feature which enables further configuration of dotfiles. 
+[yadm](https://yadm.io/) has a built-in [**bootstrap**](https://yadm.io/docs/bootstrap) feature which enables further configuration of dotfiles.
 
 The included bootstrap [script](../.config/yadm/bootstrap) will perform the following tasks:
 
@@ -111,7 +111,9 @@ Bootstrap script will scan the root of the home directory (`~/`) for known dotfi
 
 I enjoy working with the command-line and I do it with [**Zsh**](http://zsh.sourceforge.net/Intro/intro_1.html).
 
-![Preview of my Zsh configuration](screenshots/zsh-preview.png "Preview of my Zsh configuration")
+<div align="center">
+    <img src="screenshots/zsh-preview.png" align="center" alt="Preview of my Zsh configuration">
+</div>
 
 ## Plugin Manager - Zinit
 
@@ -152,7 +154,9 @@ Lists configured key bindings in Zsh. See [`keybindings.zsh`](../.config/zsh/lib
 
 [**Vim**](https://github.com/vim/vim) is my preferred terminal text editor.
 
-![Preview of my Vim configuration](screenshots/vim-preview.png "Preview of my Vim configuration")
+<div align="center">
+    <img src="screenshots/vim-preview.png" align="center" alt="Preview of my Vim configuration">
+</div>
 
 ## Plugin Manager - vim-plug
 
