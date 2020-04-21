@@ -82,7 +82,7 @@ The included bootstrap [script](../.config/yadm/bootstrap) will perform the foll
 
 ## Fonts
 
-To take full advantage of the [themed](#theme) Zsh prompt, fonts that include glyphs (icons) must be installed on the system. Bootstrap script will therefor offer installation of the excellent [**Nerd Fonts**](https://github.com/ryanoasis/nerd-fonts).
+Fonts that include glyphs (icons) must be installed on the system to take full advantage of the [themed](#theme) Zsh prompt. Bootstrap script will therefor offer installation of the excellent [**Nerd Fonts**](https://github.com/ryanoasis/nerd-fonts).
 
 Choose between the following font installatoin options:
 
