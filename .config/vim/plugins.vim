@@ -11,7 +11,7 @@
         autocmd VimEnter * PlugInstall --sync | source $XDG_CONFIG_HOME/vim/vimrc
     endif
     call plug#begin("$XDG_CONFIG_HOME/vim/plugged")
-        Plug 'danielwe/base16-vim'
+        Plug 'chriskempson/base16-vim'
         Plug 'scrooloose/nerdtree'
         " Does not work, see reported issues below:
         "   - https://github.com/Xuyuanp/nerdtree-git-plugin/issues/121
