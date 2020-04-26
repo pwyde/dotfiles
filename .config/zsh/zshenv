@@ -21,7 +21,7 @@ export PAGER="less"
 
 ## Cleanup home directory.
 # Set Zsh configuration directory paths.
-export ZDOTDIR="${HOME}/.config/zsh"
+export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
 export ZLIB="${ZDOTDIR}/lib"
 # Various configuration files.
 export DOCKER_CONFIG="${XDG_CONFIG_HOME}/docker"
