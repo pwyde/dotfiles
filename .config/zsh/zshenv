@@ -1,10 +1,17 @@
 #
-#  ~/.zshenv                             
+#  ~/.zshenv
 #             _
-#     ___ ___| |_ ___ ___ _ _ 
+#     ___ ___| |_ ___ ___ _ _
 #   _|- _|_ -|   | -_|   | | |
-#  |_|___|___|_|_|___|_|_|\_/ 
+#  |_|___|___|_|_|___|_|_|\_/
 #
+
+# Set XDG directories.
+export XDG_CONFIG_HOME="${HOME}/.config"
+export XDG_DATA_HOME="${HOME}/.local/share"
+export XDG_BIN_HOME="${HOME}/.local/bin"
+export XDG_LIB_HOME="${HOME}/.local/lib"
+export XDG_CACHE_HOME="${HOME}/.cache"
 
 # Set default applications.
 export EDITOR="vim"
@@ -13,10 +20,6 @@ export BROWSER="firefox"
 export PAGER="less"
 
 ## Cleanup home directory.
-# Set XDG directories.
-export XDG_CONFIG_HOME="${HOME}/.config"
-export XDG_CACHE_HOME="${HOME}/.cache"
-export XDG_DATA_HOME="${HOME}/.local/share"
 # Set Zsh configuration directory paths.
 export ZDOTDIR="${HOME}/.config/zsh"
 export ZLIB="${ZDOTDIR}/lib"
@@ -32,12 +35,12 @@ export XINITRC="${XDG_CONFIG_HOME}/X11/xinitrc"
 export XSERVERRC="${XDG_CONFIG_HOME}/X11/xserverrc"
 
 # Add custom paths.
-[ -d "${HOME}/.local/bin" ] && PATH="${PATH}:${HOME}/.local/bin" && export PATH
+[ -d "${XDG_BIN_HOME}" ] && PATH="${PATH}:${XDG_BIN_HOME}" && export PATH
 [ -d "${HOME}/.config/autostart-scripts" ] && PATH="${PATH}:${HOME}/.config/autostart-scripts" && export PATH
 
 # Set SSH_ASKPASS environment variable to ksshaskpass if present.
 [ -f "/usr/bin/ksshaskpass" ] && export SSH_ASKPASS="/usr/bin/ksshaskpass"
 
 # Operating system identification. For more information, see
-# https://www.freedesktop.org/software/systemd/man/os-release.html 
+# https://www.freedesktop.org/software/systemd/man/os-release.html
 [ -f "/etc/os-release" ] && source /etc/os-release
