@@ -1,6 +1,8 @@
 # Dotfiles
 
-![dotfiles-banner](artwork/dotfiles-banner.svg "Dotfiles banner")
+<div align="center">
+    <img src="artwork/dotfiles-banner.svg" align="center" alt="Dotfiles banner">
+</div>
 
 # :information_source: About
 
