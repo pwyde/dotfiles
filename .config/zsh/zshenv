@@ -19,20 +19,20 @@ export TERMINAL="konsole"
 export BROWSER="firefox"
 export PAGER="less"
 
-## Cleanup home directory.
-# Set Zsh configuration directory paths.
-export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
-export ZLIB="${ZDOTDIR}/lib"
-# Various configuration files.
+## Respect XDG directories.
 export DOCKER_CONFIG="${XDG_CONFIG_HOME}/docker"
 #export GNUPGHOME="${XDG_DATA_HOME}/gnupg" # This breaks gpg-agent.
 export KDEHOME="${XDG_CONFIG_HOME}/kde"
 export LESSHISTFILE="-" # Disable less history.
+export PIP_CONFIG_FILE="${XDG_CONFIG_HOME}/pip/pip.conf"
+export PIP_LOG_FILE="${XDG_DATA_HOME}/pip/log"
 export VIMINIT=":source $XDG_CONFIG_HOME/vim/vimrc"
 export WGETRC="${XDG_CONFIG_HOME}/wget/wgetrc"
 #export XAUTHORITY="${XDG_RUNTIME_DIR}/Xauthority" # This breaks SDDM.
 export XINITRC="${XDG_CONFIG_HOME}/X11/xinitrc"
 export XSERVERRC="${XDG_CONFIG_HOME}/X11/xserverrc"
+export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
+export ZLIB="${ZDOTDIR}/lib"
 
 # Add custom paths.
 [ -d "${XDG_BIN_HOME}" ] && PATH="${PATH}:${XDG_BIN_HOME}" && export PATH
