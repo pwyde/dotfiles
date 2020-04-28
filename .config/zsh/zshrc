@@ -44,7 +44,7 @@ zinit light-mode for \
 #         information, see https://github.com/zdharma/zinit#usage
 
 # Theme the prompt with Powerlevel10k.
-zinit atload'!source ${ZDOTDIR}/.p10k.zsh' lucid nocd
+zinit ice atload'!source ${ZDOTDIR}/.p10k.zsh' lucid nocd
 zinit load romkatv/powerlevel10k
 
 # Additional completion definitions.
