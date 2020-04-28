@@ -44,7 +44,8 @@ zinit light-mode for \
 #         information, see https://github.com/zdharma/zinit#usage
 
 # Theme the prompt with Powerlevel10k.
-zinit light romkatv/powerlevel10k
+zinit atload'!source ${ZDOTDIR}/.p10k.zsh' lucid nocd
+zinit load romkatv/powerlevel10k
 
 # Additional completion definitions.
 zinit ice wait"0" blockf lucid
@@ -139,13 +140,6 @@ source "${ZLIB}/aliases.zsh"
 ################################################################################
 
 source "${ZLIB}/plugins-conf.zsh"
-
-################################################################################
-#  CONFIGURE PROMPT
-################################################################################
-
-# Use the new customized Powerlevel10k prompt if configuration file exists.
-[ -f "${ZDOTDIR}/.p10k.zsh" ] && source "${ZDOTDIR}/.p10k.zsh"
 
 ################################################################################
 #  CONFIGURE GPG AGENT & PINENTRY
