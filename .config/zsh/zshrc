@@ -59,10 +59,6 @@ zinit light zsh-users/zsh-history-substring-search
 zinit ice wait"0" atload"_zsh_autosuggest_start" lucid
 zinit light zsh-users/zsh-autosuggestions
 
-# Modules from Oh My Zsh.
-# zinit ice wait"0" depth"1" multisrc="lib/{git,spectrum}.zsh" pick"/dev/null" nocompletions blockf lucid
-# zinit light robbyrussell/oh-my-zsh
-
 # Plugins from Oh My Zsh.
 zinit ice wait"1" lucid
 zinit snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
