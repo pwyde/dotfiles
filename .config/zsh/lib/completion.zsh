@@ -15,7 +15,10 @@ zstyle ':completion:*:options'      auto-description    '%d'
 zstyle ':completion:*:options'      description         yes
 zstyle ':completion:*:matches'      group               yes                                         # Separate matches in menu into groups.
 zstyle ':completion:*'              group-name          ''                                          # Separate matches in menu into groups.
-zstyle ':completion:*:descriptions' format              '%F{yellow}-- %d --%f'                      # Format group matches in completion menu.
+
+# Format group matches in completion menu.
+#zstyle ':completion:*:descriptions' format              '%F{yellow}-- %d --%f'             # Comment when using fzf-tab plugin.
+zstyle ':completion:*:descriptions' format              '[%d]'                              # Uncomment when using fzf-tab plugin.
 zstyle ':completion:*:corrections'  format              '%F{green}-- %d (errors: %e) --%f'
 zstyle ':completion:*:messages'     format              '%F{purple}-- %d --%f'
 zstyle ':completion:*:warnings'     format              '%F{red}-- no matches found --%f'
