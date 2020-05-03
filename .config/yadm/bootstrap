@@ -47,7 +47,6 @@ pkg_list=("git"
           "vim"
           "curl"
           "ranger"
-          "fzf"
           "thefuck"
           "unzip")
 
@@ -105,8 +104,6 @@ deb_install() {
     install_vim
     # Remove 'thefuck' from pkg_list. Will be installed using pip instead.
     pkg_list=("${pkg_list[@]/thefuck}")
-    # Remove 'fzf' from pkg_list. Will be installed using git instead.
-    pkg_list=("${pkg_list[@]/fzf}")
     print_msg "Installing package dependencies..."
     sudo apt install --yes "${pkg_list[@]}"
 }
@@ -149,19 +146,6 @@ install_thefuck() {
     sudo --set-home pip3 install thefuck
 }
 
-# Only used on Debian/Ubuntu based distributions.
-install_fzf() {
-    print_msg "Installing fzf using git..."
-    git clone --depth 1 https://github.com/junegunn/fzf.git "${temp_dir}/fzf"
-    "${temp_dir}/fzf/install" --bin --xdg --no-bash --no-zsh
-    # Install fzf in user's bin directory; $HOME/bin
-    if [ -e "${temp_dir}/fzf/bin/fzf" ]; then
-        mkdir -p "${USER_BIN_DIR}" && mv "${temp_dir}/fzf/bin/fzf" "${USER_BIN_DIR}"
-    else
-        print_error "Unable to install fzf!"
-    fi
-}
-
 install_pkgs() {
     # Operating system identification. For more information, see
     # https://www.freedesktop.org/software/systemd/man/os-release.html
@@ -183,19 +167,19 @@ install_pkgs() {
                 ;;
             *Ubuntu*)
                 print_msg "Operating system identified as '$NAME'.";
-                deb_install && install_thefuck && install_fzf
+                deb_install && install_thefuck
                 ;;
             *Debian*)
                 print_msg "Operating system identified as '$NAME'.";
-                deb_install && install_thefuck && install_fzf
+                deb_install && install_thefuck
                 ;;
             *Mint*)
                 print_msg "Operating system identified as '$NAME'.";
-                deb_install && install_thefuck && install_fzf
+                deb_install && install_thefuck
                 ;;
             *neon*)
                 print_msg "Operating system identified as '$NAME'.";
-                deb_install && install_thefuck && install_fzf
+                deb_install && install_thefuck
                 ;;
             *Raspbian*)
                 print_msg "Operating system identified as '$NAME'.";

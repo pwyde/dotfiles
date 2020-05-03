@@ -66,6 +66,13 @@
 # light-mode:
 #   Load plugin in 'light' mode when using 'for' syntax.
 
+# Zinit Packages.
+#
+# Zinit supports special, dedicated packages that offload the user from pro-
+# viding long and complex commands. For more information, see
+#   - http://zdharma.org/zinit/wiki/Zinit-Packages/
+#   - https://github.com/Zsh-Packages
+
 # Install Zinit if missing.
 if [[ ! -f ${XDG_CONFIG_HOME}/zsh/.zinit/bin/zinit.zsh ]]; then
     print -P "%F{33}▓▒░ %F{220}Installing DHARMA Initiative Plugin Manager (zdharma/zinit)…%f"
@@ -175,6 +182,13 @@ zinit wait lucid for \
     as"completion" \
         OMZ::plugins/docker/_docker \
         OMZ::plugins/docker-compose/_docker-compose
+
+# Install Zinit packages.
+#
+# fzf:
+#   https://github.com/Zsh-Packages/fzf
+#
+zinit pack"bgn-binary+keys" for fzf
 
 ################################################################################
 #  CONFIGURE ZSH
