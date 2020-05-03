@@ -37,19 +37,16 @@ zstyle ':completion:*:manuals'              separate-sections   yes
 zstyle ':completion:*:manuals.*'            insert-sections     yes
 
 ################################################################################
-#  INITIALIZE & OPTIMIZED COMPLETION SYSTEM
+#  INITIALIZE & OPTIMIZE COMPLETION SYSTEM
 ################################################################################
-#
-# Note that compinit should be called after loading all plugins according to
-# Zplugin documentation; https://github.com/zdharma/zplugin#calling-compinit
 #
 # Performance tweaking of compinit based on information from the following
 # sources.
 #   - https://carlosbecker.com/posts/speeding-up-zsh
 #   - https://gist.github.com/ctechols/ca1035271ad134841284
 #
-# On slow systems, checking the cached ~/.zcompdump file to see if it must be 
-# regenerated adds a noticable delay to Zsh startup. The solution below 
+# On slow systems, checking the cached .zcompdump file to see if it must be
+# regenerated adds a noticable delay to Zsh startup. The solution below
 # restricts it to once a day.
 #
 # See below for infromation on the globbing used.
@@ -73,7 +70,7 @@ if [[ -n ${ZDOTDIR:-$HOME}/.zcompdump(#qN.m1) ]]; then
     compinit
     echo "Initializing completions..."
 else
-    # Skip compinit security check entirely. 
+    # Skip compinit security check entirely.
     compinit -c
 fi
 
