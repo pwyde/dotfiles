@@ -134,11 +134,14 @@ zinit wait lucid for \
 #
 # alias-tips:
 #   Help remembering shell aliases.
+# fzf-tab:
+#   Replace Zsh default completion selection menu with fzf.
 # up:
 #   Use 'up' to navigate directories.
 #
 zinit wait lucid for \
     djui/alias-tips \
+    Aloxaf/fzf-tab \
     peterhurford/up.zsh
 
 # Load snippets from Oh My Zsh.
