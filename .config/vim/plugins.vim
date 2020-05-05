@@ -18,7 +18,7 @@
         "   - https://github.com/Xuyuanp/nerdtree-git-plugin/pull/122
         Plug 'Xuyuanp/nerdtree-git-plugin'
         Plug 'vim-airline/vim-airline'
-        Plug 'vim-airline/vim-airline-themes'
+        Plug 'dawikur/base16-vim-airline-themes'
         Plug 'ryanoasis/vim-devicons'
         Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
         Plug 'mhinz/vim-startify'
@@ -66,7 +66,7 @@
 
 """ vim-airline {{{
     " Set theme.
-    let g:airline_theme='base16_tomorrow'
+    let g:airline_theme='base16_tomorrow_night'
 
     " Disable Powerline fonts.
     let g:airline_powerline_fonts=0
