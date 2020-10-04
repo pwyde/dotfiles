@@ -71,7 +71,6 @@ The included bootstrap [script](../.config/yadm/bootstrap) will perform the foll
 * Install [applications](#applications-application).
   * If [**Xorg**](https://www.x.org/wiki/) is installed on the system, offer to install **GVim** instead.
   * If using Debian/Ubuntu, install [thefuck](https://github.com/nvbn/thefuck) using [`pip`](https://pip.pypa.io/) instead.
-  * If using Debian/Ubuntu, install [fzf](https://github.com/junegunn/fzf) using [`git`](https://git-scm.com) instead.
 * Bootstrap [Zsh](#zsh).
   * Prepare Zsh configuration files and directory.
   * Make Zsh the default shell.
