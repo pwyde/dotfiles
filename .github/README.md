@@ -99,14 +99,12 @@ Bootstrap script will scan the root of the home directory (`~/`) for known dotfi
 
 ## :package: Applications
 
-| **Name**                                                  | **Description**                    | **Automatic Install** |
-| :---                                                      | :---                               | :---:                 |
-| [git](https://git-scm.com)                                | Version control system (VCS).      | [bootstrap](../.config/yadm/bootstrap) :heavy_check_mark: |
-| [Zsh](http://zsh.sourceforge.net/Intro/intro_1.html)      | Preferred shell.                   | [bootstrap](../.config/yadm/bootstrap) :heavy_check_mark: |
-| [Vim](https://github.com/vim/vim)                         | Terminal text editor.              | [bootstrap](../.config/yadm/bootstrap) :heavy_check_mark: |
-| [ranger](https://ranger.github.io/)                       | Terminal file manager.             | [bootstrap](../.config/yadm/bootstrap) :heavy_check_mark: |
-| [fzf](https://github.com/junegunn/fzf)                    | Command-line fuzzy finder.         | [Zinit](../.config/zsh/zshrc) :heavy_check_mark:          |
-| [The Fuck](https://github.com/nvbn/thefuck)               | Corrects previous console command. | [bootstrap](../.config/yadm/bootstrap) :heavy_check_mark: |
+* [**git**](https://git-scm.com): Version control system (VCS).
+* [**Zsh**](http://zsh.sourceforge.net/Intro/intro_1.html): Preferred shell.
+* [**Vim**](https://github.com/vim/vim): Terminal text editor.
+* [**ranger**](https://ranger.github.io/): Terminal file manager.
+* [**fzf**](https://github.com/junegunn/fzf): Command-line fuzzy finder.
+* [**The Fuck**](https://github.com/nvbn/thefuck): Corrects previous console command.
 
 ## :shell: Zsh
 
@@ -128,27 +126,23 @@ $ zinit update
 
 ### Zsh Plugins
 
-| **Name**                                                                         | **Description**                                                                | **Automatic Install** |
-| :---                                                                             | :---                                                                           | :---:                 |
-| [Zinit](https://github.com/zdharma/zinit)                                        | Manages Zsh plugins.                                                           | [zshrc](../.config/zsh/zshrc) :heavy_check_mark:  |
-| [Powerlevel10k](https://github.com/romkatv/powerlevel10k)                        | Customize and theme the Zsh prompt.                                            | [Zinit](#plugin-manager-zinit) :heavy_check_mark: |
-| [zsh-completions](https://github.com/zsh-users/zsh-completions)                  | Additional completion definitions.                                             | [Zinit](#plugin-manager-zinit) :heavy_check_mark: |
-| [zsh-history-substring-search](https://github.com/zsh-users/zsh-history-substring-search) | [Fish](https://fishshell.com/)-like history search feature.           | [Zinit](#plugin-manager-zinit) :heavy_check_mark: |
-| [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)          | [Fish](https://fishshell.com/)-like fast and unobtrusive autosuggestions.      | [Zinit](#plugin-manager-zinit) :heavy_check_mark: |
-| [fast-syntax-highlighting](https://github.com/zdharma/fast-syntax-highlighting)  | [Fish](https://fishshell.com/)-like syntax highlighting (fast implementation). | [Zinit](#plugin-manager-zinit) :heavy_check_mark: |
-| [alias-tips](https://github.com/djui/alias-tips)                                 | Help remembering shell aliases.                                                | [Zinit](#plugin-manager-zinit) :heavy_check_mark: |
-| [fzf-tab](https://github.com/Aloxaf/fzf-tab)                                     | Replace Zsh default completion selection menu with [fzf](https://github.com/junegunn/fzf).       | [Zinit](#plugin-manager-zinit) :heavy_check_mark: |
-| [up](https://github.com/peterhurford/up.zsh)                                     | Directory navigation using `up` instead of `cd`.                                                 | [Zinit](#plugin-manager-zinit) :heavy_check_mark: |
+* [**Zinit**](https://github.com/zdharma/zinit): Manages Zsh plugins.
+* [**Powerlevel10k**](https://github.com/romkatv/powerlevel10k): Customize and theme the Zsh prompt.
+* [**zsh-completions**](https://github.com/zsh-users/zsh-completions): Additional completion definitions.
+* [**zsh-history-substring-search**](https://github.com/zsh-users/zsh-history-substring-search): [Fish](https://fishshell.com/)-like history search feature.
+* [**zsh-autosuggestions**](https://github.com/zsh-users/zsh-autosuggestions): [Fish](https://fishshell.com/)-like fast and unobtrusive autosuggestions.
+* [**fast-syntax-highlighting**](https://github.com/zdharma/fast-syntax-highlighting): [Fish](https://fishshell.com/)-like syntax highlighting (fast implementation).
+* [**alias-tips**](https://github.com/djui/alias-tips): Help remembering shell aliases.
+* [**fzf-tab**](https://github.com/Aloxaf/fzf-tab): Replace Zsh default completion selection menu with [fzf](https://github.com/junegunn/fzf).
+* [**up**](https://github.com/peterhurford/up.zsh): Directory navigation using `up` instead of `cd`.
 
 ### Oh My Zsh Snippets
 
-| **Name**                                                                                      | **Description**                                                                | **Automatic Install** |
-| :---                                                                                          | :---                                                                           | :---:                 |
-| [colored-man-pages](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/colored-man-pages) | Adds colors to man pages.                                                                        | [Zinit](#plugin-manager-zinit) :heavy_check_mark: |
-| [dirhistory](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/dirhistory)               | Adds keyboard shortcuts for navigating directory history and hierarchy.                          | [Zinit](#plugin-manager-zinit) :heavy_check_mark: |
-| [docker-compose](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/docker-compose)       | Adds aliases for frequent docker-compose commands.                                               | [Zinit](#plugin-manager-zinit) :heavy_check_mark: |
-| [git](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git)                             | Adds many aliases for Git commands.                                                              | [Zinit](#plugin-manager-zinit) :heavy_check_mark: |
-| [thefuck](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/thefuck)                     | Press `Esc` twice to correct previous command using [The Fuck](https://github.com/nvbn/thefuck). | [Zinit](#plugin-manager-zinit) :heavy_check_mark: |
+* [**colored-man-pages**](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/colored-man-pages): Adds colors to man pages.
+* [**dirhistory**](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/dirhistory): Adds keyboard shortcuts for navigating directory history and hierarchy.
+* [**docker-compose**](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/docker-compose): Adds aliases for frequent docker-compose commands.
+* [**git**](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git): Adds many aliases for Git commands.
+* [**thefuck**](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/thefuck): Press `Esc` twice to correct previous command using [The Fuck](https://github.com/nvbn/thefuck).
 
 ### Theme
 
@@ -193,20 +187,18 @@ Lists configured key bindings in Zsh. See [`keybindings.zsh`](../.config/zsh/lib
 
 ### Vim Plugins
 
-| **Name**                                                                 | **Description**                                     | **Automatic Install** |
-| :---                                                                     | :---                                                | :---:                 |
-| [vim-plug](https://github.com/junegunn/vim-plug)                         | Manages Vim plugins.                                | [bootstrap](../.config/yadm/bootstrap) :heavy_check_mark: |
-| [base16-vim](https://github.com/chriskempson/base16-vim)                 | Collection of color schemes.                        | [vim-plug](#plugin-manager-vim-plug) :heavy_check_mark:   |
-| [VimDevIcons](https://github.com/ryanoasis/vim-devicons)                 | Adds icons to Vim plugins.                          | [vim-plug](#plugin-manager-vim-plug) :heavy_check_mark:   |
-| [NERDTree](https://github.com/scrooloose/nerdtree)                       | File system explorer.                               | [vim-plug](#plugin-manager-vim-plug) :heavy_check_mark:   |
-| [vim-nerdtree-syntax-highlight](https://github.com/tiagofumo/vim-nerdtree-syntax-highlight) | Add color & icons to NERDTree.   | [vim-plug](#plugin-manager-vim-plug) :heavy_check_mark:   |
-| [nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-plugin)    | NERDTree showing git status flags.                  | [vim-plug](#plugin-manager-vim-plug) :heavy_check_mark:   |
-| [vim-airline](https://github.com/vim-airline/vim-airline)                | Lean & mean status/tabline.                         | [vim-plug](#plugin-manager-vim-plug) :heavy_check_mark:   |
-| [Startify](https://github.com/mhinz/vim-startify)                        | Vim start screen.                                   | [vim-plug](#plugin-manager-vim-plug) :heavy_check_mark:   |
-| [Fugitive](https://github.com/tpope/vim-fugitive)                        | Adds Git support.                                   | [vim-plug](#plugin-manager-vim-plug) :heavy_check_mark:   |
-| [vim-gitgutter](https://github.com/airblade/vim-gitgutter)               | Shows a `git diff` in the "gutter" (sign column).   | [vim-plug](#plugin-manager-vim-plug) :heavy_check_mark:   |
-| [vim-numbertoggle](https://github.com/jeffkreeftmeijer/vim-numbertoggle) | Enable "hybrid" line numbers.                       | [vim-plug](#plugin-manager-vim-plug) :heavy_check_mark:   |
-| [CtrlP](https://github.com/ctrlpvim/ctrlp.vim)                           | Full path fuzzy file, buffer, mru, tag, ... finder. | [vim-plug](#plugin-manager-vim-plug) :heavy_check_mark:   |
+* [**vim-plug**](https://github.com/junegunn/vim-plug): Manages Vim plugins.
+* [**base16-vim**](https://github.com/chriskempson/base16-vim): Collection of color schemes.
+* [**VimDevIcons**](https://github.com/ryanoasis/vim-devicons): Adds icons to Vim plugins.
+* [**NERDTree**](https://github.com/scrooloose/nerdtree): File system explorer.
+* [**vim-nerdtree-syntax-highlight**](https://github.com/tiagofumo/vim-nerdtree-syntax-highlight): Add color & icons to NERDTree.
+* [**nerdtree-git-plugin**](https://github.com/Xuyuanp/nerdtree-git-plugin): NERDTree showing git status flags.
+* [**vim-airline**](https://github.com/vim-airline/vim-airline): Lean & mean status/tabline.
+* [**Startify**](https://github.com/mhinz/vim-startify): Vim start screen.
+* [**Fugitive**](https://github.com/tpope/vim-fugitive): Adds Git support.
+* [**vim-gitgutter**](https://github.com/airblade/vim-gitgutter): Shows a `git diff` in the "gutter" (sign column).
+* [**vim-numbertoggle**](https://github.com/jeffkreeftmeijer/vim-numbertoggle): Enable "hybrid" line numbers.
+* [**CtrlP**](https://github.com/ctrlpvim/ctrlp.vim): Full path fuzzy file, buffer, mru, tag, ... finder.
 
 ## :heart: Credits
 
