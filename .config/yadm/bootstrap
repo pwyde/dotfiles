@@ -300,7 +300,7 @@ cleanup_home() {
     dotfiles=(".bash_history" ".bash_logout" ".bash_profile" ".bashrc" \
     ".dircolors" ".dir_colors" ".gconf" ".gitconfig" ".kde" ".kde4" ".profile" \
     ".vim" ".viminfo" ".vimrc" ".zlogin" ".zlogout" ".zprofile" ".zshenv" \
-    ".zshrc")
+    ".zshrc" ".wget-hsts")
     found=0 # Set to 1 if file found in the for loop.
     # Find any pre-esisting dotfiles.
     for file in "${dotfiles[@]}"; do
