@@ -122,12 +122,12 @@ zinit load romkatv/powerlevel10k
 #   just have to be ensured that such plugins are loaded after plugins that are
 #   issuing 'compdef', which basically mean completions that are not using the
 #   underscore-starting function file. The completion initialization still has
-#   to be performed before fast-syntax-highlighting plugin, hence the use of 
-#   atinit'' ice modifier, which will load 'compinit' right before loading the
-#   plugin. 'zicompinit' is a built-in Zinit function that runs 'autoload 
+#   to be performed before fast-syntax-highlighting plugin, hence the use of
+#   'atinit' ice modifier, which will load 'compinit' right before loading the
+#   plugin. 'zicompinit' is a built-in Zinit function that runs 'autoload
 #   compinit; compinit'. 'zicdreplay' is another built-in Zinit function that
 #   will replay any caught compdefs.
-# 
+#
 zinit wait lucid for \
     zsh-users/zsh-history-substring-search \
     atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
