@@ -16,14 +16,25 @@ alias 8='cd -8'
 alias 9='cd -9'
 # Directory management.
 alias md='mkdir -p'
+alias rmdir='rm -rf'
 
-# Listing files and directories.
-alias lsa='ls -lAh'
-alias la='ls -lAh'
-alias l='ls -lh'
-alias ll='ls -lh'
+## Listing files and directories.
+# Using ls command.
+#alias lsa='ls -lAh'
+#alias la='ls -lAh'
+#alias l='ls -lh'
+#alias ll='ls -lh'
+# Using exa command-line utility.
+alias ls='exa'
+alias la='exa --long --all'
+alias l='exa --long'
+alias ll='exa --long'
 
+alias cat='bat'
+alias find='fd'
+alias grep='rg'
 alias less="less -R"
+alias ps='procs'
 
 # Always add full time-date stamps in ISO8601 'yyyy-mm-dd hh:mm' format to the
 # 'history' command.
@@ -45,7 +56,7 @@ alias untarb="tar -xvjf"
 # Untar xz.
 alias untarx="tar -xvJf"
 # Show all processes.
-alias ps="ps aux"
+#alias ps="ps aux" # Replaced with procs command-line utility.
 
 ### Custom oneliners.
 alias update-arch="sudo pacman -Syu"
