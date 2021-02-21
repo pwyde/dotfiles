@@ -27,6 +27,7 @@ export LESSHISTFILE="-" # Disable less history.
 export PASSWORD_STORE_DIR="${XDG_DATA_HOME}/pass"
 export PIP_CONFIG_FILE="${XDG_CONFIG_HOME}/pip/pip.conf"
 export PIP_LOG_FILE="${XDG_DATA_HOME}/pip/log"
+export CARGO_HOME="${XDG_DATA_HOME}/cargo"
 export VIMINIT=":source $XDG_CONFIG_HOME/vim/vimrc"
 export WGETRC="${XDG_CONFIG_HOME}/wget/wgetrc"
 #export XAUTHORITY="${XDG_RUNTIME_DIR}/Xauthority" # This breaks SDDM.
