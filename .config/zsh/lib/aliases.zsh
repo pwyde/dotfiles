@@ -30,11 +30,11 @@ alias la='exa --long --all'
 alias l='exa --long'
 alias ll='exa --long'
 
-alias cat='bat'
+alias cat='bat --theme Dracula'
 alias find='fd'
 alias grep='rg'
 alias less="less -R"
-alias ps='procs'
+alias ps='procs --tree'
 
 # Always add full time-date stamps in ISO8601 'yyyy-mm-dd hh:mm' format to the
 # 'history' command.
