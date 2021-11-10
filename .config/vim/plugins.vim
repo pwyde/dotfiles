@@ -12,6 +12,8 @@
     endif
     call plug#begin("$XDG_CONFIG_HOME/vim/plugged")
         Plug 'chriskempson/base16-vim'
+        " Dracula theme.
+        Plug 'dracula/vim', { 'as': 'dracula' }
         Plug 'scrooloose/nerdtree'
         " Does not work, see reported issues below:
         "   - https://github.com/Xuyuanp/nerdtree-git-plugin/issues/121
@@ -66,7 +68,8 @@
 
 """ vim-airline {{{
     " Set theme.
-    let g:airline_theme='base16_tomorrow_night'
+    "let g:airline_theme='base16_tomorrow_night'
+    let g:airline_theme='base16_dracula'
 
     " Disable Powerline fonts.
     let g:airline_powerline_fonts=0

@@ -118,7 +118,10 @@
     set termguicolors
 
     " Set color scheme and silence errors if scheme does not exist.
-    silent! colorscheme base16-tomorrow-night
+    " Tomorrow Night theme from Base16.
+    "silent! colorscheme base16-tomorrow-night
+    " Official Dracula theme.
+    silent! colorscheme dracula
 """ }}}
 
 """ gVim Options {{{
