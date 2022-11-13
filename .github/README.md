@@ -116,7 +116,7 @@ I enjoy working with the command-line and I do it with [**Zsh**](http://zsh.sour
 
 ### Plugin Manager - Zinit
 
-[**Zinit**](https://github.com/zdharma/zinit) is a flexible and fast Zsh plugin manager.
+[**Zinit**](https://github.com/zdharma-continuum/zinit) is a flexible and fast Zsh plugin manager.
 
 #### Update Plugins
 
@@ -126,12 +126,12 @@ $ zinit update
 
 ### Zsh Plugins
 
-* [**Zinit**](https://github.com/zdharma/zinit): Manages Zsh plugins.
+* [**Zinit**](https://github.com/zdharma-continuum/zinit): Manages Zsh plugins.
 * [**Powerlevel10k**](https://github.com/romkatv/powerlevel10k): Customize and theme the Zsh prompt.
 * [**zsh-completions**](https://github.com/zsh-users/zsh-completions): Additional completion definitions.
 * [**zsh-history-substring-search**](https://github.com/zsh-users/zsh-history-substring-search): [Fish](https://fishshell.com/)-like history search feature.
 * [**zsh-autosuggestions**](https://github.com/zsh-users/zsh-autosuggestions): [Fish](https://fishshell.com/)-like fast and unobtrusive autosuggestions.
-* [**fast-syntax-highlighting**](https://github.com/zdharma/fast-syntax-highlighting): [Fish](https://fishshell.com/)-like syntax highlighting (fast implementation).
+* [**fast-syntax-highlighting**](https://github.com/zdharma-continuum/fast-syntax-highlighting): [Fish](https://fishshell.com/)-like syntax highlighting (fast implementation).
 * [**alias-tips**](https://github.com/djui/alias-tips): Help remembering shell aliases.
 * [**fzf-tab**](https://github.com/Aloxaf/fzf-tab): Replace Zsh default completion selection menu with [fzf](https://github.com/junegunn/fzf).
 * [**up**](https://github.com/peterhurford/up.zsh): Directory navigation using `up` instead of `cd`.
