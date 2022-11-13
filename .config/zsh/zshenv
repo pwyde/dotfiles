@@ -46,3 +46,23 @@ export ZLIB="${ZDOTDIR}/lib"
 # Operating system identification. For more information, see
 # https://www.freedesktop.org/software/systemd/man/os-release.html
 [ -f "/etc/os-release" ] && source /etc/os-release
+
+# NOTE: The following has been moved from the deprecated ~/.pam_environment
+# and is not read anymore. See https://bugs.archlinux.org/task/68945
+#
+# Variable used by ssh-agent systemd user service:
+# ~/.config/systemd/user/ssh-agent.service
+# Uncomment to enable.
+#SSH_AUTH_SOCK  DEFAULT="${XDG_RUNTIME_DIR}/ssh-agent.socket"
+
+# Variables used by gpg-agent to cache SSH key passphrases instead of shh-agent
+# systemd user service.
+# Uncomment to enable.
+#
+# Option 1:
+#SSH_AGENT_PID   DEFAULT=
+#SSH_AUTH_SOCK   DEFAULT="${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh"
+#
+# Option 2:
+unset SSH_AGENT_PID
+export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
