@@ -119,9 +119,11 @@
 
     " Set color scheme and silence errors if scheme does not exist.
     " Tomorrow Night theme from Base16.
-    "silent! colorscheme base16-tomorrow-night
+    silent! colorscheme base16-tomorrow-night
     " Official Dracula theme.
-    silent! colorscheme dracula
+    "silent! colorscheme dracula
+    " Official Nord theme.
+    "silent! colorscheme nord
 """ }}}
 
 """ gVim Options {{{
