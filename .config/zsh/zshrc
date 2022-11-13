@@ -181,13 +181,44 @@ zinit wait lucid for \
         OMZ::plugins/docker/_docker \
         OMZ::plugins/docker-compose/_docker-compose
 
-# Install fzf according to https://github.com/zdharma-continuum/zinit/wiki/Recipes-for-popular-programs#fzf
+# Install additional popular programs.
+# 
+# For more information, see
+# https://github.com/zdharma-continuum/zinit/wiki/Recipes-for-popular-programs
+#
+# bat
+zi for \
+    from'gh-r' \
+    sbin'**/bat -> bat' \
+    @sharkdp/bat \
+# exa
+zi for \
+    atclone'cp -vf completions/exa.zsh _exa' \
+    from'gh-r' \
+    sbin'**/exa -> exa' \
+    ogham/exa
+# fd
+zi for \
+    from'gh-r'  \
+    sbin'**/fd -> fd' \
+    @sharkdp/fd
+# fzf
 zi for \
     from'gh-r' \
     sbin'fzf'  \
     junegunn/fzf
 zi for \
     https://github.com/junegunn/fzf/raw/master/shell/{'completion','key-bindings'}.zsh
+# procs
+zi for \
+    from'gh-r' \
+    sbin'**/procs -> procs' \
+    dalance/procs
+# ripgrep
+zi for \
+    from'gh-r' \
+    sbin'**/rg -> rg' \
+    BurntSushi/ripgrep
 
 ################################################################################
 #  CONFIGURE ZSH
