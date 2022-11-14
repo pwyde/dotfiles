@@ -143,43 +143,53 @@ zinit wait lucid for \
 #   Replace Zsh default completion selection menu with fzf.
 # up:
 #   Use 'up' to navigate directories.
+# zfs-completion:
+#   zfs completion script.
 #
 zinit wait lucid for \
     djui/alias-tips \
     Aloxaf/fzf-tab \
-    peterhurford/up.zsh
+    peterhurford/up.zsh \
+    luoxu34/zfs-completion
 
-# Load snippets from Oh My Zsh.
+# Load plugins from Oh My Zsh.
 #
 # colored-man-pages:
 #   Adds colors to man pages.
+# docker:
+#   Adds auto-completion and aliases for docker.
+# docker-compose:
+#   Provides completion for docker-compose as well as some aliases for fre-
+#   quent docker-compose commands.
 # dirhistory:
 #   Adds keyboard shortcuts for navigating directory history and hierarchy.
-# docker-compose:
-#   Adds aliases for frequent docker-compose commands.
+# extract:
+#   Defines a function called extract that extracts the archive file passed
+#   to it, and it supports a wide variety of archive filetypes.
 # git:
 #   Adds many aliases for Git commands.
 # thefuck:
 #   Corrects previous console command by pressing 'Esc' twice.
 #
 zinit wait lucid for \
-    OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh \
-    OMZ::plugins/dirhistory/dirhistory.plugin.zsh \
-    OMZ::plugins/docker-compose/docker-compose.plugin.zsh \
-    OMZ::plugins/git/git.plugin.zsh \
-    OMZ::plugins/thefuck/thefuck.plugin.zsh
+    OMZP::colored-man-pages \
+    OMZP::docker \
+    OMZP::docker-compose\
+    OMZP::dirhistory \
+    OMZP::extract \
+    OMZP::git \
+    OMZP::thefuck
 
-# Load additional completions from Oh My Zsh.
+# Load completions from Oh My Zsh.
 #
 # Note:
 #   Completions from Oh My Zsh are loaded using the 'for' syntax with the use
 #   of Turbo mode. The use of as"completion" ice modifier specifies that Zinit
 #   should only load snippets starting with underscore (completion file).
 #
-zinit wait lucid for \
-    as"completion" \
-        OMZ::plugins/docker/_docker \
-        OMZ::plugins/docker-compose/_docker-compose
+zinit wait lucid as"completion" for \
+    OMZP::docker/_docker \
+    OMZP::docker-compose/_docker-compose
 
 # Install additional popular programs.
 # 
