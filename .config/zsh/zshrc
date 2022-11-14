@@ -174,7 +174,7 @@ zinit wait lucid for \
 zinit wait lucid for \
     OMZP::colored-man-pages \
     OMZP::docker \
-    OMZP::docker-compose\
+    OMZP::docker-compose \
     OMZP::dirhistory \
     OMZP::extract \
     OMZP::git \
