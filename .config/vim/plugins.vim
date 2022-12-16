@@ -16,12 +16,15 @@
         Plug 'dracula/vim', { 'as': 'dracula' }
         " Nord theme.
         Plug 'arcticicestudio/nord-vim'
+        " ayu theme.
+        Plug 'ayu-theme/ayu-vim'"
         Plug 'scrooloose/nerdtree'
         " Does not work, see reported issues below:
         "   - https://github.com/Xuyuanp/nerdtree-git-plugin/issues/121
         "   - https://github.com/Xuyuanp/nerdtree-git-plugin/pull/122
         Plug 'Xuyuanp/nerdtree-git-plugin'
         Plug 'vim-airline/vim-airline'
+        Plug 'vim-airline/vim-airline-themes'
         Plug 'dawikur/base16-vim-airline-themes'
         Plug 'ryanoasis/vim-devicons'
         Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -70,7 +73,8 @@
 
 """ vim-airline {{{
     " Set theme.
-    let g:airline_theme='base16_tomorrow_night'
+    let g:airline_theme='ayu_dark'
+    "let g:airline_theme='base16_tomorrow_night'
     "let g:airline_theme='base16_dracula'
     "let g:airline_theme='base16_nord'
 
