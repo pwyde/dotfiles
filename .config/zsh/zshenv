@@ -6,20 +6,20 @@
 #  |_|___|___|_|_|___|_|_|\_/
 #
 
-# Set XDG directories.
-export XDG_CONFIG_HOME="${HOME}/.config"
-export XDG_DATA_HOME="${HOME}/.local/share"
-export XDG_BIN_HOME="${HOME}/.local/bin"
-export XDG_LIB_HOME="${HOME}/.local/lib"
-export XDG_CACHE_HOME="${HOME}/.cache"
-
 # Set default applications.
 export EDITOR="vim"
 export TERMINAL="konsole"
 export BROWSER="firefox"
 export PAGER="less"
 
-## Respect XDG directories.
+# Set XDG base directories.
+export XDG_CONFIG_HOME="${HOME}/.config"
+export XDG_DATA_HOME="${HOME}/.local/share"
+export XDG_BIN_HOME="${HOME}/.local/bin"
+export XDG_LIB_HOME="${HOME}/.local/lib"
+export XDG_CACHE_HOME="${HOME}/.cache"
+
+# Respect XDG directories.
 export DOCKER_CONFIG="${XDG_CONFIG_HOME}/docker"
 #export GNUPGHOME="${XDG_DATA_HOME}/gnupg" # This breaks gpg-agent.
 export KDEHOME="${XDG_CONFIG_HOME}/kde"
@@ -66,3 +66,6 @@ export ZLIB="${ZDOTDIR}/lib"
 # Option 2:
 unset SSH_AGENT_PID
 export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+
+# Enable MangoHud for all Vulkan games.
+export MANGOHUD="1"
