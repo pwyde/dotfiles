@@ -70,3 +70,7 @@ export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 
 # Enable MangoHud for all Vulkan games.
 export MANGOHUD="1"
+
+# Enable acme.sh for issuing Let's Encrypt certificates.
+export LE_WORKING_DIR="/home/patrik/.local/opt/acme.sh"
+export LE_CONFIG_HOME="/home/patrik/.config/acme.sh"

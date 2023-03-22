@@ -57,6 +57,8 @@ alias untarb="tar -xvjf"
 alias untarx="tar -xvJf"
 # Show all processes.
 #alias ps="ps aux" # Replaced with procs command-line utility.
+# Enable acme.sh for issuing Let's Encrypt certificates.
+alias acme.sh="/home/patrik/.local/opt/acme.sh/acme.sh --config-home '/home/patrik/.config/acme.sh'"
 
 ### Custom oneliners.
 alias update-arch="sudo pacman -Syu"
