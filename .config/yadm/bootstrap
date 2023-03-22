@@ -146,7 +146,7 @@ install_vim() {
 install_thefuck() {
     print_msg "Installing thefuck using pip..."
     sudo apt install --yes python3-dev python3-pip python3-setuptools
-    sudo --set-home pip3 install thefuck --user
+    pip3 install thefuck --user
 }
 
 install_pkgs() {
