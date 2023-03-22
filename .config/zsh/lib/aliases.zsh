@@ -19,16 +19,33 @@ alias md='mkdir -p'
 alias rmdir='rm -rf'
 
 ## Listing files and directories.
-# Using ls command.
 #alias lsa='ls -lAh'
 #alias la='ls -lAh'
 #alias l='ls -lh'
 #alias ll='ls -lh'
-# Using exa command-line utility.
-alias ls='exa --icons'
-alias la='exa --long --group --header --all --icons'
-alias l='exa --long --group --header --icons'
-alias ll='exa --long --group --header --icons'
+# Check if exa should display icons or not.
+if [[ -z $DISPLAY ]]; then
+    # Test if session is virtual console (tty) or other.
+    if [[ $(tty) = /dev/tty[0-9]* ]]; then
+        # Running in console, do not display icons in exa.
+        alias ls='exa'
+        alias la='exa --long --group --header --all'
+        alias l='exa --long --group --header'
+        alias ll='exa --long --group --header'
+    else
+        # Running Xorg/Wayland, display icons in exa.
+        alias ls='exa --icons'
+        alias la='exa --long --group --header --all --icons'
+        alias l='exa --long --group --header --icons'
+        alias ll='exa --long --group --header --icons'
+    fi
+else
+    # Running Xorg/Wayland, display icons in exa.
+    alias ls='exa --icons'
+    alias la='exa --long --group --header --all --icons'
+    alias l='exa --long --group --header --icons'
+    alias ll='exa --long --group --header --icons'
+fi
 
 alias cat='bat --theme base16'
 alias find='fd'
