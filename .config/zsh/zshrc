@@ -308,17 +308,18 @@ if [[ "${NAME}" == "KDE neon" ]]; then
 fi
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
-# Test if session is running Xorg.
+# Test if session is running Xorg/Wayland.
 if [[ -z $DISPLAY ]]; then
     # Test if session is virtual console (tty) or other.
     if [[ $(tty) = /dev/tty[0-9]* ]]; then
+        # Running in console, do not display icons in prompt.
         source ~/.config/zsh/.p10k-tty.zsh
     else
-        # Running Xorg.
+        # Running Xorg/Wayland, display icons in prompt.
         source ~/.config/zsh/.p10k.zsh
     fi
 else
-    # Running Xorg.
+    # Running Xorg/Wayland, display icons in prompt.
     source ~/.config/zsh/.p10k.zsh
 fi
 
