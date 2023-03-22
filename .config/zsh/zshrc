@@ -205,7 +205,7 @@ zinit wait lucid as"completion" for \
 zi for \
     from'gh-r' \
     sbin'**/bat -> bat' \
-    @sharkdp/bat \
+    @sharkdp/bat
 # exa
 zi for \
     atclone'cp -vf completions/exa.zsh _exa' \
