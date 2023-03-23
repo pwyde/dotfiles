@@ -81,7 +81,7 @@ alias untarb="tar -xvjf"
 # Untar xz.
 alias untarx="tar -xvJf"
 # Enable acme.sh for issuing Let's Encrypt certificates.
-alias acme.sh="/home/patrik/.local/opt/acme.sh/acme.sh --config-home '/home/patrik/.config/acme.sh'"
+alias acme.sh="${HOME}/.local/opt/acme.sh/acme.sh --config-home '${HOME}/.config/acme.sh'"
 
 ### Custom Oneliners
 alias update-arch="sudo pacman -Syu"

@@ -72,5 +72,5 @@ export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 export MANGOHUD="1"
 
 # Enable acme.sh for issuing Let's Encrypt certificates.
-export LE_WORKING_DIR="/home/patrik/.local/opt/acme.sh"
-export LE_CONFIG_HOME="/home/patrik/.config/acme.sh"
+export LE_WORKING_DIR="${HOME}/.local/opt/acme.sh"
+export LE_CONFIG_HOME="${HOME}/.config/acme.sh"
