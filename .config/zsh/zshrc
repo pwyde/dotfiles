@@ -193,7 +193,7 @@ zinit wait lucid for \
 #   should only load snippets starting with underscore (completion file).
 #
 zinit wait lucid as"completion" for \
-    OMZP::docker/_docker \
+    OMZP::docker/completions/_docker \
     OMZP::docker-compose/_docker-compose
 
 # Install additional popular programs.
