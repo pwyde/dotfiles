@@ -1,7 +1,7 @@
 [user]
 	name = Patrik Wyde
 	email = patrik@wyde.se
-	signingkey = 0x12027FC5C7E3663C
+	signingkey = 12027FC5C7E3663C
 [core]
 	editor = vim
 	autocrlf = input
