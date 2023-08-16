@@ -18,6 +18,10 @@
         Plug 'arcticicestudio/nord-vim'
         " ayu theme.
         Plug 'ayu-theme/ayu-vim'"
+        " Sweet-dark theme.
+        Plug 'jschmold/sweet-dark.vim'
+        " Embark theme.
+        Plug 'embark-theme/vim', { 'as': 'embark', 'branch': 'main' }
         Plug 'scrooloose/nerdtree'
         " Does not work, see reported issues below:
         "   - https://github.com/Xuyuanp/nerdtree-git-plugin/issues/121
@@ -73,10 +77,11 @@
 
 """ vim-airline {{{
     " Set theme.
-    let g:airline_theme='ayu_dark'
+    "let g:airline_theme='ayu_dark'
     "let g:airline_theme='base16_tomorrow_night'
     "let g:airline_theme='base16_dracula'
-    "let g:airline_theme='base16_nord'
+    let g:airline_theme='base16_nord'
+    "let g:airline_theme = 'embark'
 
     " Disable Powerline fonts.
     let g:airline_powerline_fonts=0

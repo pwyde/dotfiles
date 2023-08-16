@@ -121,14 +121,18 @@
     " Official ayu theme.
     "let ayucolor="light"  " Light version of ayu theme.
     "let ayucolor="mirage" " Mirage version of ayu theme.
-    let ayucolor="dark"   " Dark version of ayu theme.
-    silent! colorscheme ayu
+    "let ayucolor="dark"   " Dark version of ayu theme.
+    "silent! colorscheme ayu
     " Tomorrow Night theme from Base16.
     "silent! colorscheme base16-tomorrow-night
     " Official Dracula theme.
     "silent! colorscheme dracula
     " Official Nord theme.
-    "silent! colorscheme nord
+    silent! colorscheme nord
+    " Sweet-dark theme.
+    "silent! colorscheme sweet_dark
+    " Embark theme.
+    "silent! colorscheme embark
 """ }}}
 
 """ gVim Options {{{
