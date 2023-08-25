@@ -52,6 +52,7 @@ fi
 
 ### Command-line Utilities
 alias cat='bat --theme Nord'
+alias bat='bat --theme Nord'
 alias find='fd'
 alias grep='rg'
 alias less="less -R"
@@ -84,5 +85,6 @@ alias untarx="tar -xvJf"
 alias acme.sh="${HOME}/.local/opt/acme.sh/acme.sh --config-home '${HOME}/.config/acme.sh'"
 
 ### Custom Oneliners
+alias paru="paru --batflags --theme=Nord"
 alias update-arch="sudo pacman -Syu"
 alias update-ubuntu="sudo apt update && sudo apt upgrade && sudo apt autoremove"
