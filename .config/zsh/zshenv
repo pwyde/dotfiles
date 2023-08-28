@@ -21,6 +21,8 @@ export XDG_LIB_HOME="${HOME}/.local/lib"
 export XDG_CACHE_HOME="${HOME}/.cache"
 
 # Respect XDG directories.
+export DOCKER_CONFIG="${XDG_CONFIG_HOME}/docker"
+export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock # Docker in rootless mode.
 #export GNUPGHOME="${XDG_DATA_HOME}/gnupg" # This breaks gpg-agent.
 export KDEHOME="${XDG_CONFIG_HOME}/kde"
 export LESSHISTFILE="-" # Disable less history.
@@ -35,14 +37,6 @@ export XINITRC="${XDG_CONFIG_HOME}/X11/xinitrc"
 export XSERVERRC="${XDG_CONFIG_HOME}/X11/xserverrc"
 export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
 export ZLIB="${ZDOTDIR}/lib"
-# Check if Docker daemon is running in rootless mode.
-if docker system info &> /dev/null; then
-    DOCKER_INFO=$(docker system info --format '{{json .SecurityOptions}}')
-    if [[ "$DOCKER_INFO" =~ "name=rootless" ]]; then
-        export DOCKER_CONFIG="${XDG_CONFIG_HOME}/docker"
-        export DOCKER_HOST="unix://${XDG_RUNTIME_DIR}/docker.sock"
-    fi
-fi
 
 # Add custom paths.
 [ -d "${XDG_BIN_HOME}" ] && PATH="${PATH}:${XDG_BIN_HOME}" && export PATH
