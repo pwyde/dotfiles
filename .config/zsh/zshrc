@@ -206,6 +206,11 @@ zi for \
     from'gh-r' \
     sbin'**/bat -> bat' \
     @sharkdp/bat
+# bottom
+zi for \
+    from'gh-r' \
+    sbin'**/btm -> btm' \
+    ClementTsang/bottom
 # exa
 zi for \
     atclone'cp -vf completions/exa.zsh _exa' \
