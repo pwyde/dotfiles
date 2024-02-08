@@ -30,7 +30,7 @@ Install from the standard package repositories.
 
 ### Manual
 
-Standard package repositories are often behind the official GitHub [releases](https://github.com/TheLocehiliosan/yadm/releases). A manual installation using `git clone` is therefor preferred.
+Standard package repositories are often behind the official GitHub [releases](https://github.com/TheLocehiliosan/yadm/releases). A manual installation using `git clone` is therefore preferred.
 
 ```
 $ git clone https://github.com/TheLocehiliosan/yadm.git $HOME/.local/share/yadm
@@ -47,7 +47,7 @@ $ yadm clone https://github.com/pwyde/dotfiles.git
 
 #### Force Overwrite of Local Dotfiles
 
-The `clone` and `pull` command may result in warnings because of pre-existing dotfiles. Overwrite the existing files with commands below.
+The `clone` and `pull` command may result in warnings because of pre-existing dotfiles. Overwrite the existing files with the commands below.
 
 ```
 $ yadm fetch --all
@@ -85,7 +85,7 @@ The included bootstrap [script](../.config/yadm/bootstrap) will perform the foll
 
 Fonts that include glyphs (icons) must be installed on the system to take full advantage of the [themed](#theme) Zsh prompt. Bootstrap script will therefor offer installation of the excellent [**Nerd Fonts**](https://github.com/ryanoasis/nerd-fonts).
 
-Choose between the following font installatoin options:
+Choose between the following font installation options:
 
 1. **None**. Do not install any fonts.
 2. **Basic**. Install only the [Source Code Pro](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/SourceCodePro.zip) font family.
@@ -95,7 +95,7 @@ Fonts will be installed in the `~/.local/share/fonts` directory.
 
 ### Cleanup Home Directory
 
-Bootstrap script will scan the root of the home directory (`~/`) for known dotfiles. If any are found, script will prompt them for removal. See [XDG base directory compliance](#xdg-base-directory-compliance) for more information.
+Bootstrap script will scan the root of the home directory (`~/`) for known dotfiles. If any are found, the script will prompt them for removal. See [XDG base directory compliance](#xdg-base-directory-compliance) for more information.
 
 ## :package: Applications
 
