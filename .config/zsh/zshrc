@@ -217,6 +217,13 @@ zi for \
     from'gh-r' \
     sbin'**/exa -> exa' \
     ogham/exa
+# eza
+zi for \
+    from'gh-r' \
+    sbin'**/eza -> eza' \
+    eza-community/eza
+zinit ice as"completion"
+zinit snippet https://raw.githubusercontent.com/eza-community/eza/main/completions/zsh/_eza
 # fd
 zi for \
     from'gh-r'  \
