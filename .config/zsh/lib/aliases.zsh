@@ -51,8 +51,8 @@ else
 fi
 
 ### Command-line Utilities
-alias cat='bat --theme Nord'
-alias bat='bat --theme Nord'
+alias cat='bat --theme base16'
+alias bat='bat --theme base16'
 alias find='fd'
 alias grep='rg'
 alias less="less -R"

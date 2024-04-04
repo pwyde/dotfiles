@@ -128,11 +128,13 @@
     " Official Dracula theme.
     "silent! colorscheme dracula
     " Official Nord theme.
-    silent! colorscheme nord
+    "silent! colorscheme nord
     " Sweet-dark theme.
     "silent! colorscheme sweet_dark
     " Embark theme.
     "silent! colorscheme embark
+    " Catppuccin theme.
+    silent! colorscheme catppuccin_mocha
 """ }}}
 
 """ gVim Options {{{

@@ -22,6 +22,8 @@
         Plug 'jschmold/sweet-dark.vim'
         " Embark theme.
         Plug 'embark-theme/vim', { 'as': 'embark', 'branch': 'main' }
+        " Catppuccin theme.
+        Plug 'catppuccin/vim', { 'as': 'catppuccin' }
         Plug 'scrooloose/nerdtree'
         " Does not work, see reported issues below:
         "   - https://github.com/Xuyuanp/nerdtree-git-plugin/issues/121
@@ -80,7 +82,7 @@
     "let g:airline_theme='ayu_dark'
     "let g:airline_theme='base16_tomorrow_night'
     "let g:airline_theme='base16_dracula'
-    let g:airline_theme='base16_nord'
+    "let g:airline_theme='base16_nord'
     "let g:airline_theme = 'embark'
 
     " Disable Powerline fonts.
