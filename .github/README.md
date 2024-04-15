@@ -99,12 +99,19 @@ Bootstrap script will scan the root of the home directory (`~/`) for known dotfi
 
 ## :package: Applications
 
-* [**git**](https://git-scm.com): Version control system (VCS).
-* [**Zsh**](http://zsh.sourceforge.net/Intro/intro_1.html): Preferred shell.
-* [**Vim**](https://github.com/vim/vim): Terminal text editor.
-* [**ranger**](https://ranger.github.io/): Terminal file manager.
-* [**fzf**](https://github.com/junegunn/fzf): Command-line fuzzy finder.
+* [**bat**](https://github.com/sharkdp/bat): A `cat` clone with syntax highlighting and Git integration.
+* [**bottom**](https://github.com/ClementTsang/bottom): A customizable cross-platform graphical process/system monitor for the terminal.
+* [**exa**](https://github.com/ogham/exa): A modern replacement for `ls`.
+* [**eza**](https://github.com/eza-community/eza): A modern, maintained replacement for `ls` and `exa`.
+* [**fd**](https://github.com/sharkdp/fd): A simple, fast and user-friendly alternative to `find`.
 * [**The Fuck**](https://github.com/nvbn/thefuck): Corrects previous console command.
+* [**fzf**](https://github.com/junegunn/fzf): Command-line fuzzy finder.
+* [**Git**](https://git-scm.com): Version control system (VCS).
+* [**procs**](https://github.com/dalance/procs): A modern replacement for `ps` written in Rust.
+* [**ranger**](https://ranger.github.io/): Terminal file manager.
+* [**ripgrep**](https://github.com/BurntSushi/ripgrep): Replacement for the classic `grep` command written in Rust.
+* [**Vim**](https://github.com/vim/vim): Terminal text editor.
+* [**Zsh**](http://zsh.sourceforge.net/Intro/intro_1.html): Preferred shell.
 
 ## :shell: Zsh
 
