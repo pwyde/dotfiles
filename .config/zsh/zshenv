@@ -21,13 +21,15 @@ export XDG_LIB_HOME="${HOME}/.local/lib"
 export XDG_CACHE_HOME="${HOME}/.cache"
 
 # Respect XDG directories.
+export CARGO_HOME="${XDG_DATA_HOME}/cargo"
 #export GNUPGHOME="${XDG_DATA_HOME}/gnupg" # This breaks gpg-agent.
+export KUBECONFIG="${XDG_CONFIG_HOME}/kube"
+export KUBECACHEDIR="${XDG_CACHE_HOME}/kube"
 export KDEHOME="${XDG_CONFIG_HOME}/kde"
 export LESSHISTFILE="-" # Disable less history.
 export PASSWORD_STORE_DIR="${XDG_DATA_HOME}/pass"
 export PIP_CONFIG_FILE="${XDG_CONFIG_HOME}/pip/pip.conf"
 export PIP_LOG_FILE="${XDG_DATA_HOME}/pip/log"
-export CARGO_HOME="${XDG_DATA_HOME}/cargo"
 export VIMINIT=":source $XDG_CONFIG_HOME/vim/vimrc"
 export WGETRC="${XDG_CONFIG_HOME}/wget/wgetrc"
 #export XAUTHORITY="${XDG_RUNTIME_DIR}/Xauthority" # This breaks SDDM.
