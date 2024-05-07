@@ -21,6 +21,11 @@ export XDG_LIB_HOME="${HOME}/.local/lib"
 export XDG_CACHE_HOME="${HOME}/.cache"
 
 # Respect XDG directories.
+# The remote's ~/.ansible/tmp can be moved by setting 'remote_tmp = ${XDG_CONFIG_HOME}/ansible/tmp'
+# in an appropriate ansible.cfg configuration file.
+export ANSIBLE_HOME="${XDG_CONFIG_HOME}/ansible"
+export ANSIBLE_CONFIG="${XDG_CONFIG_HOME}/ansible.cfg"
+export ANSIBLE_GALAXY_CACHE_DIR="${XDG_CACHE_HOME}/ansible/galaxy_cache"
 export CARGO_HOME="${XDG_DATA_HOME}/cargo"
 #export GNUPGHOME="${XDG_DATA_HOME}/gnupg" # This breaks gpg-agent.
 export KUBECONFIG="${XDG_CONFIG_HOME}/kube"
