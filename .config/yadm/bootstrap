@@ -46,6 +46,7 @@ pkg_list=("git"
           "zsh"
           "vim"
           "curl"
+          "direnv"
           "ranger"
           "w3m"         # Optional dependency for 'ranger'.
           "highlight"   # Optional dependency for 'ranger'.
