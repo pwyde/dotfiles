@@ -159,8 +159,15 @@ zinit wait lucid for \
 
 # Load plugins from Oh My Zsh.
 #
+# archlinux:
+#   Adds some aliases and functions to work with Arch Linux.
 # colored-man-pages:
 #   Adds colors to man pages.
+# command-not-found:
+#   This plugin uses the command-not-found package for zsh to provide
+#   suggested packages to be installed if a command cannot be found.
+# debian:
+#   Provides Debian-related aliases and functions for zsh.
 # docker:
 #   Adds auto-completion and aliases for docker.
 # docker-compose:
@@ -170,7 +177,9 @@ zinit wait lucid for \
 #   Adds keyboard shortcuts for navigating directory history and hierarchy.
 # extract:
 #   Defines a function called extract that extracts the archive file passed
-#   to it, and it supports a wide variety of archive filetypes.
+#   to it, and it supports a wide variety of archive file types.
+# fluxcd:
+#   Adds completion for FluxCD.
 # git:
 #   Adds many aliases for Git commands.
 # kubectl:
@@ -179,14 +188,19 @@ zinit wait lucid for \
 #   Corrects previous console command by pressing 'Esc' twice.
 #
 zinit wait lucid for \
+    OMZP::archlinux \
     OMZP::colored-man-pages \
+    OMZP::command-not-found \
+    OMZP::debian \
     OMZP::docker \
     OMZP::docker-compose \
     OMZP::dirhistory \
     OMZP::extract \
+    OMZP::fluxcd \
     OMZP::git \
     OMZP::kubectl \
-    OMZP::thefuck
+    OMZP::thefuck \
+    OMZP::ubuntu
 
 # Load completions from Oh My Zsh.
 #
