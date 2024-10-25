@@ -79,11 +79,12 @@
 
 """ vim-airline {{{
     " Set theme.
-    "let g:airline_theme='ayu_dark'
-    "let g:airline_theme='base16_tomorrow_night'
-    "let g:airline_theme='base16_dracula'
-    "let g:airline_theme='base16_nord'
+    "let g:airline_theme = 'ayu_dark'
+    "let g:airline_theme = 'base16_tomorrow_night'
+    "let g:airline_theme = 'base16_dracula'
+    "let g:airline_theme = 'base16_nord'
     "let g:airline_theme = 'embark'
+    let g:airline_theme = 'catppuccin_mocha'
 
     " Disable Powerline fonts.
     let g:airline_powerline_fonts=0
