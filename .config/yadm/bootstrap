@@ -247,7 +247,7 @@ font_options() {
   Options for font installation.${no_color}
 " >&1
     echo -e "${yellow}  1)${white} None. Do not install any fonts.${no_color}" >&1
-    echo -e "${yellow}  2)${white} Basic. Install only the 'Nerd Fonts Source Code Pro' font family.${no_color}" >&1
+    echo -e "${yellow}  2)${white} Basic. Install only the 'Source Code Pro Nerd' font family.${no_color}" >&1
     echo -e "${yellow}  3)${white} Complete. Install the complete collection of 'Nerd Fonts'.${no_color}" >&1
     echo
 }
@@ -261,7 +261,7 @@ install_fonts() {
         case "${opt}" in
             [1]*) font_option=1 ;;
             [2]*) font_option=2; font_name="SourceCodePro" font_dir="${XDG_DATA_HOME}/fonts/${font_name}" \
-                  font_dl_url="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/${font_name}.zip" ;;
+                  font_dl_url="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/${font_name}.zip" ;;
             [3]*) font_option=3; font_name="NerdFonts" font_dl_url="https://github.com/ryanoasis/nerd-fonts.git" ;;
             *) echo -e "Invalid option '${opt}'." >&2; font_options ;;
         esac
