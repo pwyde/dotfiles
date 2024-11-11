@@ -32,22 +32,22 @@ if [[ -z $DISPLAY ]]; then
     if [[ $(tty) = /dev/tty[0-9]* ]]; then
         # Running in console, do not display icons in exa.
         alias ls='exa'
-        alias la='exa --long --group --header --all'
-        alias l='exa --long --group --header'
-        alias ll='exa --long --group --header'
+        alias la='exa --long --group --group-directories-first --header --all'
+        alias l='exa --long --group --group-directories-first --header'
+        alias ll='exa --long --group --group-directories-first --header'
     else
         # Running Xorg/Wayland, display icons in exa.
         alias ls='exa --icons'
-        alias la='exa --long --group --header --all --icons'
-        alias l='exa --long --group --header --icons'
-        alias ll='exa --long --group --header --icons'
+        alias la='exa --long --group --group-directories-first --header --all --icons'
+        alias l='exa --long --group --group-directories-first --header --icons'
+        alias ll='exa --long --group --group-directories-first --header --icons'
     fi
 else
     # Running Xorg/Wayland, display icons in exa.
     alias ls='exa --icons'
-    alias la='exa --long --group --header --all --icons'
-    alias l='exa --long --group --header --icons'
-    alias ll='exa --long --group --header --icons'
+    alias la='exa --long --group --group-directories-first --header --all --icons'
+    alias l='exa --long --group --group-directories-first --header --icons'
+    alias ll='exa --long --group --group-directories-first --header --icons'
 fi
 
 ### Command-line Utilities
