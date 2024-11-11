@@ -46,7 +46,6 @@ pkg_list=("git"
           "zsh"
           "vim"
           "curl"
-          "direnv"
           "ranger"
           "w3m"         # Optional dependency for 'ranger'.
           "highlight"   # Optional dependency for 'ranger'.
@@ -106,7 +105,7 @@ deb_install() {
     # Specify Debian/Ubuntu based distribution specific GVim package.
     vim_gui_pkg="vim-gtk3"
     install_vim
-    # Remove 'thefuck' from pkg_list. Will be installed using pip instead.
+    # Remove 'thefuck' from pkg_list. Will be installed using pipx instead.
     pkg_list=("${pkg_list[@]/thefuck}")
     print_msg "Installing package dependencies..."
     sudo apt install --yes "${pkg_list[@]}"
@@ -145,9 +144,9 @@ install_vim() {
 
 # Only used on Debian/Ubuntu based distributions.
 install_thefuck() {
-    print_msg "Installing thefuck using pip..."
-    sudo apt install --yes python3-dev python3-pip python3-setuptools
-    pip3 install thefuck --user
+    print_msg "Installing thefuck using pipx..."
+    sudo apt install --yes pipx
+    pipx install thefuck
 }
 
 install_pkgs() {
