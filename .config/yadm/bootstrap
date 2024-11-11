@@ -225,7 +225,7 @@ bootstrap_zsh() {
 
 bootstrap_vim() {
     print_msg "Bootstrapping Vim..."
-    # Array for Vim configuration diretcory/files.
+    # Array for Vim configuration directory/files.
     vim_dotfiles=(".vim" ".vimrc" ".viminfo")
     # Delete default Vim configuration files if present.
     for file in "${vim_dotfiles[@]}"; do
@@ -302,7 +302,7 @@ cleanup_home() {
     ".profile" ".vim" ".viminfo" ".vimrc" ".zlogin" ".zlogout" ".zprofile" \
     ".zshenv" ".zshrc" ".wget-hsts")
     found=0 # Set to 1 if file found in the for loop.
-    # Find any pre-esisting dotfiles.
+    # Find any pre-existing dotfiles.
     for file in "${dotfiles[@]}"; do
         if [ -e "${HOME}/${file}" ]; then
             found=1; break

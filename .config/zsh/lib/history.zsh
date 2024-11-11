@@ -20,6 +20,7 @@ setopt hist_ignore_space      # Ignore commands that start with a space.
 setopt hist_reduce_blanks     # Remove superfluous blanks from history items.
 setopt hist_verify            # Show command with history expansion to user
                               # before running it.
-setopt inc_append_history     # Add commands to $HISTFILE in order of execution.
-setopt share_history          # Share history between different instances of the
-                              # shell. 
+setopt inc_append_history     # Add commands to $HISTFILE in order of
+                              # execution.
+setopt share_history          # Share history between different instances of
+                              # the shell.

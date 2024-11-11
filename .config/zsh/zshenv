@@ -69,8 +69,7 @@ fi
 #SSH_AUTH_SOCK  DEFAULT="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 
 # Variables used by gpg-agent to cache SSH key passphrases instead of shh-agent
-# systemd user service.
-# Uncomment to enable.
+# systemd user service. Uncomment to enable.
 #
 # Option 1:
 #SSH_AGENT_PID   DEFAULT=

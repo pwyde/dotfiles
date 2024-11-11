@@ -49,10 +49,10 @@ zstyle ':completion:*:manuals.*'            insert-sections     yes
 #   - https://gist.github.com/ctechols/ca1035271ad134841284
 #
 # On slow systems, checking the cached .zcompdump file to see if it must be
-# regenerated adds a noticable delay to Zsh startup. The solution below
+# regenerated adds a noticeable delay to Zsh startup. The solution below
 # restricts it to once a day.
 #
-# See below for infromation on the globbing used.
+# See below for information on the globbing used.
 #   '#q' : Explicit glob qualifier that makes globbing work within Zsh's [[ ]]
 #          construct.
 #   'N'  : Makes the glob pattern evaluate to nothing when it does not match,
@@ -61,7 +61,7 @@ zstyle ':completion:*:manuals.*'            insert-sections     yes
 #   'm1' : Match files (or directories or whatever) that are older than 1 day.
 
 # Autoload completion functions.
-#   -U : Mark the fucntion for autoloading and suppress alias expansion.
+#   -U : Mark the function for autoloading and suppress alias expansion.
 #   -z : Use Zsh instead of Korn shell style functions.
 autoload -Uz compinit
 

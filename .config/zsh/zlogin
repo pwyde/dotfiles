@@ -8,7 +8,7 @@
 
 # Compile .zcompdump file, if modified, to increase startup speed. This will
 # be executed during start of login shell and run in background to not affect
-# surrent sesison. For more information, see
+# current session. For more information, see
 # https://htr3n.github.io/2018/07/faster-zsh/
 {
     zcompdump="${ZDOTDIR:-$HOME}/.zcompdump"

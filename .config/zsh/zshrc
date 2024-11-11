@@ -19,19 +19,19 @@
 #   Load plugin...
 # light:
 #   Load plugin in light mode, without reporting/tracking. See output from
-#   'zinit report' command. When a plugin is light loaded, reporting of func-
-#   tions, variables etc. is not available. For more information, see
+#   'zinit report' command. When a plugin is light loaded, reporting of
+#   functions, variables etc. is not available. For more information, see
 #     - https://zdharma-continuum.github.io/zinit/wiki/INTRODUCTION/
 #     - https://github.com/zdharma-continuum/zinit#loading-and-unloading
 #   Note that unloading a plugin requires the plugin to be loaded with tracking
-#   (zinit load). Tracking causes slight slowdown, this does however not influ-
-#   ence Zsh startup time when using Turbo mode. See 'wait' ice modifier.
+#   (zinit load). Tracking causes slight slowdown, this does however not
+#   influence Zsh startup time when using Turbo mode. See 'wait' ice modifier.
 # snippet:
 #   Source local or remote file (by direct URL).
 
 # Zinit Ice Modifiers
 #
-# Zinit uses 'ice' modfiers as a term for adding something next to the 'zinit'
+# Zinit uses 'ice' modifiers as a term for adding something next to the 'zinit'
 # command and that is temporary. Hence the modification will only last for a
 # single zinnit command.
 #
@@ -68,8 +68,8 @@
 
 # Zinit Packages.
 #
-# Zinit supports special, dedicated packages that offload the user from pro-
-# viding long and complex commands. For more information, see
+# Zinit supports special, dedicated packages that offload the user from
+# providing long and complex commands. For more information, see
 #   - https://zdharma-continuum.github.io/zinit/wiki/Zinit-Packages/
 #   - https://github.com/zdharma-continuum/zinit-packages
 
@@ -94,8 +94,8 @@ source "${XDG_CONFIG_HOME}/zsh/.zinit/bin/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-# Load a few important annexes, without Turbo mode as this is currently re-
-# quired for annexes. This is added by Zinit's installer.
+# Load a few important annexes, without Turbo mode as this is currently
+# required for annexes. This is added by Zinit's installer.
 zinit light-mode for \
     zdharma-continuum/zinit-annex-{'readurl','bin-gem-node','patch-dl','rust'}
 
@@ -121,7 +121,7 @@ zinit light romkatv/powerlevel10k
 #   zsh-autosuggestions plugin to avoid "unhandled ZLE widget" error.
 #
 #   The fast-syntax-highlighting plugin expects to be loaded last, even after
-#   the completion initialization, i.e. 'compinit' function. In practice it
+#   the completion initialisation, i.e. 'compinit' function. In practice it
 #   just have to be ensured that such plugins are loaded after plugins that are
 #   issuing 'compdef', which basically mean completions that are not using the
 #   underscore-starting function file. The completion initialization still has
@@ -171,8 +171,8 @@ zinit wait lucid for \
 # docker:
 #   Adds auto-completion and aliases for docker.
 # docker-compose:
-#   Provides completion for docker-compose as well as some aliases for fre-
-#   quent docker-compose commands.
+#   Provides completion for docker-compose as well as some aliases for
+#   frequent docker-compose commands.
 # dirhistory:
 #   Adds keyboard shortcuts for navigating directory history and hierarchy.
 # extract:
@@ -332,11 +332,11 @@ export GPG_TTY=$(tty)
 # Launch gpg-agent to be used by SSH and use the correct TTY if running
 # KDE Neon.
 #
-# According to Arch Wiki the command below is needed to "refresh the TTY in case
-# user has switched into an X session". Not executing it does however not seem
-# to have any negative effect on Arch Linux, other than not applying the config-
-# ured Plasma theme to the pinentry Qt interface. Hence it is not executed on
-# Arch Linux. For more information, see
+# According to Arch Wiki the command below is needed to "refresh the TTY in
+# case user has switched into an X session". Not executing it does however not
+# seem to have any negative effect on Arch Linux, other than not applying the
+# configured Plasma theme to the pinentry Qt interface. Hence it is not
+# executed on Arch Linux. For more information, see
 # https://wiki.archlinux.org/index.php/GnuPG#Set_SSH_AUTH_SOCK
 if [[ "${NAME}" == "KDE neon" ]]; then
     gpg-connect-agent updatestartuptty /bye >/dev/null
@@ -357,5 +357,3 @@ else
     # Running Xorg/Wayland, display icons in prompt.
     source ~/.config/zsh/.p10k.zsh
 fi
-
-

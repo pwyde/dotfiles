@@ -74,15 +74,15 @@
         Up              up-line-or-beginning-search         # Previous command in history.
         Down            down-line-or-beginning-search       # Next command in history.
         CtrlUp          history-substring-search-up         # Search for previous command in history (zsh-history-substring-search)
-        CtrlDown        history-substring-search-down       # Seatch for next command in history (zsh-history-substring-search).
+        CtrlDown        history-substring-search-down       # Search for next command in history (zsh-history-substring-search).
         ShiftTab        reverse-menu-complete               # Previous selection in completion menu.
         Ctrl-E          edit-command-line                   # Edit command in $EDITOR.
-      # Disabled because an extra dash (-) is displayed after '...' is shown while completing.
+      # Disabled because an extra dash (-) is displayed after '...' while completing.
       # Tab             expand-or-complete-with-dots        # Show '...' while completing.
       # Disabled due to issue with fast-syntax-highlighting plugin.
       # Keyboard shortcuts specified below are plugin default.
       # AltUp           dirhistory_zle_dirhistory_up        # Change to parent directory.
-      # AltDown         dirhistory_zle_dirhistory_down      # Change directory into the first subdirectory.
+      # AltDown         dirhistory_zle_dirhistory_down      # Change directory into the first sub-directory.
       # AltRight        dirhistory_zle_dirhistory_future    # Change directory history forward.
       # AltLeft         dirhistory_zle_dirhistory_back      # Change directory history backward.
         Alt-k           vi-backward-kill-word               # Delete previous word in Vim-style.
