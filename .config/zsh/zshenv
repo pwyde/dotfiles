@@ -31,6 +31,7 @@ export CARGO_HOME="${XDG_DATA_HOME}/cargo"
 export KUBECONFIG="${XDG_CONFIG_HOME}/kube"
 export KUBECACHEDIR="${XDG_CACHE_HOME}/kube"
 export KDEHOME="${XDG_CONFIG_HOME}/kde"
+export KREW_ROOT="${XDG_DATA_HOME}/krew"
 export LESSHISTFILE="-" # Disable less history.
 export PASSWORD_STORE_DIR="${XDG_DATA_HOME}/pass"
 export PIP_CONFIG_FILE="${XDG_CONFIG_HOME}/pip/pip.conf"
@@ -52,6 +53,7 @@ fi
 # Add custom paths.
 [ -d "${XDG_BIN_HOME}" ] && PATH="${PATH}:${XDG_BIN_HOME}" && export PATH
 [ -d "${HOME}/.config/autostart-scripts" ] && PATH="${PATH}:${HOME}/.config/autostart-scripts" && export PATH
+[ -d "${KREW_ROOT}" ] && PATH="${PATH}:${KREW_ROOT}/bin" && export PATH
 
 # Set SSH_ASKPASS environment variable to ksshaskpass if present.
 [ -f "/usr/bin/ksshaskpass" ] && export SSH_ASKPASS="/usr/bin/ksshaskpass"
