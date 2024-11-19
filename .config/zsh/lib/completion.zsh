@@ -17,7 +17,7 @@ zstyle ':completion:*:matches'      group               yes                     
 zstyle ':completion:*'              group-name          ''                                          # Separate matches in menu into groups.
 
 # Format group matches in completion menu.
-#zstyle ':completion:*:descriptions' format              '%F{yellow}-- %d --%f'             # Comment when using fzf-tab plugin. For more information,
+zstyle ':completion:*:descriptions' format              '%F{yellow}-- %d --%f'              # Comment when using fzf-tab plugin. For more information,
 zstyle ':completion:*:descriptions' format              '[%d]'                              # see https://github.com/Aloxaf/fzf-tab/issues/43.
 zstyle ':completion:*:corrections'  format              '%F{green}-- %d (errors: %e) --%f'
 zstyle ':completion:*:messages'     format              '%F{purple}-- %d --%f'
@@ -26,6 +26,11 @@ zstyle ':completion:*:warnings'     format              '%F{red}-- no matches fo
 # Configure completion of directories.
 zstyle ':completion:*'              list-colors         ${(s.:.)LS_COLORS}  # Enable $LS_COLORS for directories in completion menu.
 zstyle ':completion:*'              special-dirs        yes                 # Enable completion menu of ./ and ../ special directories.
+
+zstyle ':fzf-tab:*'    fzf-flags    --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+                                    --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+                                    --color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
+                                    --color=selected-bg:#45475a
 
 # Configure completion of 'kill' command.
 zstyle ':completion:*:*:*:*:processes'      command             'ps -u $USER -o pid,user,command -w'

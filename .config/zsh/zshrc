@@ -85,9 +85,9 @@ fi
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block. Everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# fi
 
 # Load Zinit.
 source "${XDG_CONFIG_HOME}/zsh/.zinit/bin/zinit.zsh"
@@ -100,7 +100,22 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-{'readurl','bin-gem-node','patch-dl','rust'}
 
 # Theme the prompt with Powerlevel10k.
-zinit light romkatv/powerlevel10k
+# zinit light romkatv/powerlevel10k
+
+# Install and load Starship prompt as a command from GitHub Releases.
+# - as"command": Treat Starship as a command and add it to the $PATH.
+# - from"gh-r": Download Starship from GitHub Releases.
+# - atclone: Run commands after cloning the repository:
+#   - ./starship init zsh > init.zsh: Generate Zsh initialization code for Starship.
+#   - ./starship completions zsh > _starship: Generate Zsh completion definitions for Starship.
+# - atpull"%atclone": Run the same commands during the update (pull) phase to keep the files
+#                     up-to-date.
+# - src"init.zsh": Source the generated init.zsh file to initialize Starship in the shell.
+zinit ice as"command" from"gh-r" \
+    atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
+    atpull"%atclone" src"init.zsh"
+zinit light starship/starship
+export STARSHIP_CONFIG="${XDG_CONFIG_HOME}/starship/starship.toml"
 
 # Load essential plugins.
 #
@@ -342,18 +357,22 @@ if [[ "${NAME}" == "KDE neon" ]]; then
     gpg-connect-agent updatestartuptty /bye >/dev/null
 fi
 
+################################################################################
+#  CONFIGURE POWERLEVEL10K
+################################################################################
+
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 # Test if session is running Xorg/Wayland.
-if [[ -z $DISPLAY ]]; then
-    # Test if session is virtual console (tty) or other.
-    if [[ $(tty) = /dev/tty[0-9]* ]]; then
-        # Running in console, do not display icons in prompt.
-        source ~/.config/zsh/.p10k-tty.zsh
-    else
-        # Running Xorg/Wayland, display icons in prompt.
-        source ~/.config/zsh/.p10k.zsh
-    fi
-else
-    # Running Xorg/Wayland, display icons in prompt.
-    source ~/.config/zsh/.p10k.zsh
-fi
+# if [[ -z $DISPLAY ]]; then
+#     # Test if session is virtual console (tty) or other.
+#     if [[ $(tty) = /dev/tty[0-9]* ]]; then
+#         # Running in console, do not display icons in prompt.
+#         source ~/.config/zsh/.p10k-tty.zsh
+#     else
+#         # Running Xorg/Wayland, display icons in prompt.
+#         source ~/.config/zsh/.p10k.zsh
+#     fi
+# else
+#     # Running Xorg/Wayland, display icons in prompt.
+#     source ~/.config/zsh/.p10k.zsh
+# fi

@@ -27,27 +27,51 @@ alias rmdir='rm -rf'
 #alias ll='ls -lh'
 # Using exa command-line utility:
 # Check if exa should display icons or not.
+# if [[ -z $DISPLAY ]]; then
+#     # Test if session is virtual console (tty) or other.
+#     if [[ $(tty) = /dev/tty[0-9]* ]]; then
+#         # Running in console, do not display icons in exa.
+#         alias ls='exa'
+#         alias la='exa --long --group --group-directories-first --header --all'
+#         alias l='exa --long --group --group-directories-first --header'
+#         alias ll='exa --long --group --group-directories-first --header'
+#     else
+#         # Running Xorg/Wayland, display icons in exa.
+#         alias ls='exa --icons'
+#         alias la='exa --long --group --group-directories-first --header --all --icons'
+#         alias l='exa --long --group --group-directories-first --header --icons'
+#         alias ll='exa --long --group --group-directories-first --header --icons'
+#     fi
+# else
+#     # Running Xorg/Wayland, display icons in exa.
+#     alias ls='exa --icons'
+#     alias la='exa --long --group --group-directories-first --header --all --icons'
+#     alias l='exa --long --group --group-directories-first --header --icons'
+#     alias ll='exa --long --group --group-directories-first --header --icons'
+# fi
+# Using eza command-line utility:
+# Check if eza should display icons or not.
 if [[ -z $DISPLAY ]]; then
     # Test if session is virtual console (tty) or other.
     if [[ $(tty) = /dev/tty[0-9]* ]]; then
         # Running in console, do not display icons in exa.
-        alias ls='exa'
-        alias la='exa --long --group --group-directories-first --header --all'
-        alias l='exa --long --group --group-directories-first --header'
-        alias ll='exa --long --group --group-directories-first --header'
+        alias ls='eza --color=always --icons=never'
+        alias la='eza --color=always --long --group --group-directories-first --header --all --icons=never'
+        alias l='eza --color=always --long --group --group-directories-first --header --icons=never'
+        alias ll='eza --color=always --long --group --group-directories-first --header --icons=never'
     else
         # Running Xorg/Wayland, display icons in exa.
-        alias ls='exa --icons'
-        alias la='exa --long --group --group-directories-first --header --all --icons'
-        alias l='exa --long --group --group-directories-first --header --icons'
-        alias ll='exa --long --group --group-directories-first --header --icons'
+        alias ls='eza --color=always --icons=always'
+        alias la='eza --color=always --long --group --group-directories-first --header --all --icons=always'
+        alias l='eza --color=always --long --group --group-directories-first --header --icons=always'
+        alias ll='eza --color=always --long --group --group-directories-first --header --icons=always'
     fi
 else
     # Running Xorg/Wayland, display icons in exa.
-    alias ls='exa --icons'
-    alias la='exa --long --group --group-directories-first --header --all --icons'
-    alias l='exa --long --group --group-directories-first --header --icons'
-    alias ll='exa --long --group --group-directories-first --header --icons'
+    alias ls='eza --color=always --icons=always'
+    alias la='eza --color=always --long --group --group-directories-first --header --all --icons=always'
+    alias l='eza --color=always --long --group --group-directories-first --header --icons=always'
+    alias ll='eza --color=always --long --group --group-directories-first --header --icons=always'
 fi
 
 ### Command-line Utilities
@@ -85,6 +109,6 @@ alias untarx="tar -xvJf"
 alias acme.sh="${HOME}/.local/opt/acme.sh/acme.sh --config-home '${HOME}/.config/acme.sh'"
 
 ### Custom Oneliners
-alias paru="paru --batflags --theme=Nord"
-alias update-arch="sudo pacman -Syu"
+alias paru="paru --batflags --theme=base16"
+alias update-arch="paru -Syu"
 alias update-ubuntu="sudo apt update && sudo apt upgrade && sudo apt autoremove"
