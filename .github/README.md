@@ -68,7 +68,7 @@ For more information, see [this](https://wiki.archlinux.org/index.php/XDG_Base_D
 
 The included bootstrap [script](../.config/yadm/bootstrap) will perform the following tasks:
 
-* Install [applications](#applications-application).
+* Install [applications](#package-applications).
   * If using [**Arch Linux**](https://archlinux.org/), install package dependencies using `pacman` and [AUR helper](https://wiki.archlinux.org/title/AUR_helpers). Supports `paru` and `yay`.
   * If using **Debian**/**Ubuntu**, install package dependencies using [Homebrew](https://brew.sh/).
 * Bootstrap [Zsh](#zsh).
@@ -83,7 +83,7 @@ The included bootstrap [script](../.config/yadm/bootstrap) will perform the foll
 
 ### Fonts
 
-Fonts that include glyphs (icons) must be installed on the system to take full advantage of the [themed](#theme) Zsh prompt. Bootstrap script will therefor offer installation of the excellent [**Nerd Fonts**](https://github.com/ryanoasis/nerd-fonts).
+Fonts that include glyphs (icons) must be installed on the system to take full advantage of the [themed](#prompt--themes) Zsh prompt. Bootstrap script will therefor offer installation of the excellent [**Nerd Fonts**](https://github.com/ryanoasis/nerd-fonts).
 
 Choose between the following font installation options:
 
@@ -139,7 +139,7 @@ $ antidote update
 
 See [`zsh_plugins.txt`](../.config/zsh/zsh_plugins.txt) for a current list of plugins that will be installed.
 
-#### Most Valuable Plugins
+### Most Valuable Plugins
 
 * [**zsh-completions**](https://github.com/zsh-users/zsh-completions): Additional completion definitions.
 * [**zsh-history-substring-search**](https://github.com/zsh-users/zsh-history-substring-search): [Fish](https://fishshell.com/)-like history search feature.
