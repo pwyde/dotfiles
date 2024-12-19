@@ -1,0 +1,13 @@
+bat
+bat-extras
+bottom
+duf
+dust
+eza
+fd
+oh-my-posh
+procs
+ripgrep
+starship
+vivid
+zoxide

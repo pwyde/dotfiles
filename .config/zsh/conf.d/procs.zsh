@@ -1,0 +1,1 @@
+alias procs='procs --tree'

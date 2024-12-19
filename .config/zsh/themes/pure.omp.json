@@ -1,0 +1,90 @@
+{
+    "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+    "blocks": [
+      {
+        "alignment": "left",
+        "segments": [
+          {
+            "foreground": "#cba6f7",
+            "style": "plain",
+            "template": "{{ .UserName }} ",
+            "type": "session"
+          },
+          {
+            "foreground": "#89b4fa",
+            "properties": {
+              "style": "full"
+            },
+            "style": "plain",
+            "template": "{{ .Path }} ",
+            "type": "path"
+          }
+        ],
+        "type": "prompt"
+      },
+      {
+        "alignment": "left",
+        "segments": [
+          {
+            "foreground": "#9399b2",
+            "properties": {
+              "branch_ahead_icon": "<#88C0D0>\u21e1 </>",
+              "branch_behind_icon": "<#88C0D0>\u21e3 </>",
+              "branch_icon": "",
+              "fetch_stash_count": true,
+              "fetch_status": true,
+              "fetch_upstream_icon": true,
+              "github_icon": ""
+            },
+            "style": "plain",
+            "template": "{{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}<#FFAFD7>*</>{{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }} ",
+            "type": "git"
+          }
+        ],
+        "type": "prompt"
+      },
+      {
+        "alignment": "left",
+        "segments": [
+          {
+            "foreground": "#a6e3a1",
+            "properties": {
+              "style": "austin"
+            },
+            "style": "plain",
+            "template": " {{ .FormattedMs }} ",
+            "type": "executiontime"
+          }
+        ],
+        "type": "prompt"
+      },
+      {
+        "alignment": "left",
+        "newline": true,
+        "segments": [
+          {
+            "foreground": "#a6e3a1",
+            "foreground_templates": [
+              "{{ if gt .Code 0 }}#f38ba8{{ end }}"
+            ],
+            "properties": {
+              "always_enabled": true
+            },
+            "style": "plain",
+            "template": "\u276f ",
+            "type": "status"
+          }
+        ],
+        "type": "prompt"
+      }
+    ],
+    "console_title_template": "{{.UserName}}@{{.HostName}} {{.PWD}}",
+    "transient_prompt": {
+      "foreground": "#f5c2e7",
+      "foreground_templates": [
+        "{{ if gt .Code 0 }}#f38ba8{{ end }}"
+      ],
+      "template": "\u276f "
+    },
+    "version": 3
+  }

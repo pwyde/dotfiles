@@ -1,10 +1,10 @@
-#!/usr/bin/env zsh
+#
+# terminal.zsh - Setup terminal title.
+#
 
-################################################################################
-#  CONFIGURE XTERM TITLE
-################################################################################
+# Reference:
+# - https://wiki.archlinux.org/index.php/Zsh#xterm_title
 
-# For more information, see https://wiki.archlinux.org/index.php/Zsh#xterm_title
 autoload -Uz add-zsh-hook
 
 xterm-title-precmd() {

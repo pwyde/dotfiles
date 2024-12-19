@@ -1,0 +1,49 @@
+#
+# zsh_plugins - Antidote plugin bundle file.
+#
+
+#
+# Oh-My-Zsh
+#
+# Load this plugin FIRST to configuring the environment to ensure proper functionality of OMZ.
+getantidote/use-omz
+
+#
+# Completions
+#
+zsh-users/zsh-completions kind:fpath path:src
+luoxu34/zfs-completion kind:fpath
+
+#
+# Prompt
+#
+# sindresorhus/pure
+# romkatv/powerlevel10k
+
+#
+# Utilities
+#
+ohmyzsh/ohmyzsh path:plugins/command-not-found
+ohmyzsh/ohmyzsh path:plugins/eza
+ohmyzsh/ohmyzsh path:plugins/debian
+ohmyzsh/ohmyzsh path:plugins/direnv
+ohmyzsh/ohmyzsh path:plugins/docker-compose
+ohmyzsh/ohmyzsh path:plugins/docker
+ohmyzsh/ohmyzsh path:plugins/extract
+ohmyzsh/ohmyzsh path:plugins/fluxcd
+ohmyzsh/ohmyzsh path:plugins/git
+ohmyzsh/ohmyzsh path:plugins/gpg-agent
+ohmyzsh/ohmyzsh path:plugins/helm
+ohmyzsh/ohmyzsh path:plugins/k9s
+ohmyzsh/ohmyzsh path:plugins/kubectl
+ohmyzsh/ohmyzsh path:plugins/ubuntu
+djui/alias-tips
+unixorn/fzf-zsh-plugin kind:defer
+Aloxaf/fzf-tab
+
+#
+# Fish-like
+#
+zdharma-continuum/fast-syntax-highlighting kind:defer
+zsh-users/zsh-autosuggestions kind:defer
+zsh-users/zsh-history-substring-search kind:defer

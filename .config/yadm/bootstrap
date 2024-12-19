@@ -12,6 +12,9 @@ git_url="https://${git_host}/${git_user}/"
 temp_file="$(mktemp -u)"
 temp_dir="$(mktemp -d)"
 
+# Variables for Nerd fonts.
+font_ver="v3.3.0"
+
 # Set XDG directories.
 export XDG_CONFIG_HOME="${HOME}/.config"
 export XDG_CACHE_HOME="${HOME}/.cache"
@@ -46,12 +49,30 @@ pkg_list=("git"
           "zsh"
           "vim"
           "curl"
-          "ranger"
-          "w3m"         # Optional dependency for 'ranger'.
-          "highlight"   # Optional dependency for 'ranger'.
-          "thefuck"
           "tree"
           "unzip")
+
+# Array for Brew packages.
+brew_list=("bat"
+           "bat-extras"
+           "bottom"
+           "duf"
+           "dust"
+           "eza"
+           "fd"
+           "oh-my-posh"
+           "procs"
+           "ripgrep"
+           "starship"
+           "vivid"
+           "zoxide")
+
+# Array for AUR packages
+aur_list=("${brew_list[@]}")
+
+# Array for fonts.
+fonts_list=("FiraCode"
+            "SourceCodePro")
 
 # FUNCTIONS ####################################################################
 
@@ -92,61 +113,44 @@ cleanup_tmp() {
 pac_install() {
     print_msg "Updating package database..."
     sudo pacman -Sy
-    # Specify Arch based distribution specific GVim package.
-    vim_gui_pkg="gvim"
-    install_vim
     print_msg "Installing package dependencies..."
     sudo pacman -S --noconfirm "${pkg_list[@]}"
+}
+
+aur_install() {
+    if command -v paru &> /dev/null; then
+        print_msg "Installing AUR packages..."
+        paru -S --noconfirm "${aur_list[@]}"
+    elif command -v yay &> /dev/null; then
+        print_msg "Installing AUR packages..."
+        yay -S --noconfirm "${aur_list[@]}"
+    else
+        print_error "No AUR helper available! Skipping AUR packages..."
+    fi
 }
 
 deb_install() {
     print_msg "Updating package database..."
     sudo apt update
-    # Specify Debian/Ubuntu based distribution specific GVim package.
-    vim_gui_pkg="vim-gtk3"
-    install_vim
-    # Remove 'thefuck' from pkg_list. Will be installed using pipx instead.
-    pkg_list=("${pkg_list[@]/thefuck}")
     print_msg "Installing package dependencies..."
+    # Add Homebrew dependencies to package array.
+    pkg_list+=("build-essential" "procps" "file")
     sudo apt install --yes "${pkg_list[@]}"
 }
 
-vim_options() {
-    echo -e "${yellow}
-  Options for Vim installation.${no_color}
-" >&1
-    echo -e "${yellow}  1)${white} Basic. Install standard Vim package.${no_color}" >&1
-    echo -e "${yellow}  2)${white} GUI. Install Vim with GTK3 GUI.${no_color}" >&1
-    echo
+install_homebrew() {
+    print_msg "Installing Homebrew..."
+    # Install Homebrew according to https://docs.brew.sh/Homebrew-on-Linux
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    [ -d /home/linuxbrew/.linuxbrew ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    # Recommended steps bewlo...
+    brew doctor
+    brew install gcc
 }
 
-install_vim() {
-    # Check if Xorg display server is installed. If true, offer Vim installation
-    # options.
-    if [[ -e $(command -v Xorg) || -e $(command -v startx) ]]; then
-        vim_options
-        while [ -z "${vim_option}" ]; do
-            echo -en "${white}  Option${yellow} [1/2]${white}: ${no_color}"
-            read -r opt
-            echo
-            case "${opt}" in
-                [1]*) vim_option=1 ;;
-                [2]*) vim_option=2 ;;
-                *) echo -e "Invalid option '${opt}'." >&2; vim_options ;;
-            esac
-        done
-        if [ "${vim_option}" = 2 ]; then
-            # Replace standard Vim package with GTK3 GUI version.
-            pkg_list=("${pkg_list[@]/vim/$vim_gui_pkg}")
-        fi
-    fi
-}
-
-# Only used on Debian/Ubuntu based distributions.
-install_thefuck() {
-    print_msg "Installing thefuck using pipx..."
-    sudo apt install --yes pipx
-    pipx install thefuck
+brew_install() {
+    print_msg "Installing brew packages..."
+    brew install "${brew_list[@]}"
 }
 
 install_pkgs() {
@@ -159,34 +163,25 @@ install_pkgs() {
             *Arch*)
                 print_msg "Operating system identified as '$NAME'.";
                 pac_install
-                ;;
-            *Manjaro*)
-                print_msg "Operating system identified as '$NAME'.";
-                pac_install
-                ;;
-            *Chakra*)
-                print_msg "Operating system identified as '$NAME'.";
-                pac_install
-                ;;
-            *Ubuntu*)
-                print_msg "Operating system identified as '$NAME'.";
-                deb_install && install_thefuck
+                aur_install
                 ;;
             *Debian*)
                 print_msg "Operating system identified as '$NAME'.";
-                deb_install && install_thefuck
-                ;;
-            *Mint*)
-                print_msg "Operating system identified as '$NAME'.";
-                deb_install && install_thefuck
+                deb_install
+                install_homebrew
+                brew_install
                 ;;
             *neon*)
                 print_msg "Operating system identified as '$NAME'.";
-                deb_install && install_thefuck
+                deb_install
+                install_homebrew
+                brew_install
                 ;;
-            *Raspbian*)
+            *Ubuntu*)
                 print_msg "Operating system identified as '$NAME'.";
-                deb_install && install_thefuck
+                deb_install
+                install_homebrew
+                brew_install
                 ;;
             *)
                 print_error "Unable to identify operating system! Could not install packages...";
@@ -207,11 +202,6 @@ bootstrap_zsh() {
     for file in "${zsh_dotfiles[@]}"; do
         [ -e "${HOME}/${file}" ] && rm -rf "${HOME:?}/${file}" >/dev/null 2>&1
     done
-    # Create symlinks to Zsh configuration files. Apparently this is needed.
-    ln -sf "${ZDOTDIR}/zlogin"    "${ZDOTDIR}/.zlogin"
-    ln -sf "${ZDOTDIR}/zlogout"   "${ZDOTDIR}/.zlogout"
-    ln -sf "${ZDOTDIR}/zshenv"    "${ZDOTDIR}/.zshenv"
-    ln -sf "${ZDOTDIR}/zshrc"     "${ZDOTDIR}/.zshrc"
     print_msg "Set Zsh as default shell..."
     # Set default shell to Zsh.
     chsh -s "$(command -v zsh)"
@@ -246,7 +236,7 @@ font_options() {
   Options for font installation.${no_color}
 " >&1
     echo -e "${yellow}  1)${white} None. Do not install any fonts.${no_color}" >&1
-    echo -e "${yellow}  2)${white} Basic. Install only the 'Source Code Pro Nerd' font family.${no_color}" >&1
+    echo -e "${yellow}  2)${white} Basic. Install only the 'Fira Code' and 'Source Code Pro' Nerd fonts.${no_color}" >&1
     echo -e "${yellow}  3)${white} Complete. Install the complete collection of 'Nerd Fonts'.${no_color}" >&1
     echo
 }
@@ -259,8 +249,7 @@ install_fonts() {
         echo
         case "${opt}" in
             [1]*) font_option=1 ;;
-            [2]*) font_option=2; font_name="SourceCodePro" font_dir="${XDG_DATA_HOME}/fonts/${font_name}" \
-                  font_dl_url="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/${font_name}.zip" ;;
+            [2]*) font_option=2; font_dir="${XDG_DATA_HOME}/fonts/${font_name}" ;;
             [3]*) font_option=3; font_name="NerdFonts" font_dl_url="https://github.com/ryanoasis/nerd-fonts.git" ;;
             *) echo -e "Invalid option '${opt}'." >&2; font_options ;;
         esac
@@ -268,14 +257,17 @@ install_fonts() {
     if [ "${font_option}" = 1 ]; then
         print_msg "Skipping font installation..."
     elif [ "${font_option}" = 2 ]; then
-        # Create font directory if it does not exist.
-        mkdir -p "${font_dir}"
-        print_msg "Downloading '${font_name}' fonts..."
-        # Download font family and extract excluding Windows compatible fonts.
-        curl -fLo "${temp_file}" "${font_dl_url}" --progress-bar
-        print_msg "Installing fonts..."
-        unzip -q "${temp_file}" -x "*Windows*" -d "${temp_dir}"
-        cp "${temp_dir}"/*.ttf "${font_dir}"
+        for font in "${fonts_list[@]}"; do
+            font_dl_url="https://github.com/ryanoasis/nerd-fonts/releases/download/${font_ver}/${font}.zip"
+            # Create font directory if it does not exist.
+            mkdir -p "${font_dir}"
+            print_msg "Downloading '${font}' fonts..."
+            # Download fonts, extract and overwrite files such as README.md...
+            curl -fLo "${temp_file}" "${font_dl_url}" --progress-bar
+            print_msg "Installing fonts..."
+            unzip -o -q "${temp_file}" -d "${temp_dir}"
+            cp "${temp_dir}"/*.ttf "${font_dir}"
+        done
         fc-cache -f -v >/dev/null 2>&1
     elif [ "${font_option}" = 3 ]; then
         print_msg "Downloading '$font_name'..."

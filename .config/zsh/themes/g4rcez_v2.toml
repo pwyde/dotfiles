@@ -1,0 +1,168 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+add_newline = true
+palette = "tailwind"
+format = """
+$status\
+${custom.git_host}\
+$directory\
+$git_branch\
+$fill\
+${custom.since_last_commit}\
+$git_state\
+$git_commit\
+$git_metrics\
+$git_status\
+$git_commit\
+$lua\
+$nodejs\
+$deno\
+$package\
+$dotnet\
+$docker_context\
+$cmd_duration\
+$line_break\
+$character\
+"""
+
+[palettes.tailwind]
+fg = "#ffffff"
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"
+
+[docker_context]
+format = '[ $context](sky) '
+
+[lua]
+format = '[󰢱 $version](blue) '
+
+[package]
+symbol = " "
+style = "teal"
+disabled = false
+display_private = true
+format = '[$symbol$version]($style) '
+
+[fill]
+symbol = " "
+style = 'green'
+disabled = false
+
+[status]
+symbol = ' '
+disabled = false
+map_symbol = true
+style = 'fg:blue'
+success_symbol = ''
+format = '[$symbol](yellow)$status ($style)'
+
+[directory]
+style = "blue"
+home_symbol = "~"
+truncation_length = 0
+fish_style_pwd_dir_length = 1
+format = '[$path]($style)[$read_only]($read_only_style) '
+
+[character]
+error_symbol = "[❯](red)"
+vimcmd_symbol = "[❮](green)"
+success_symbol = "[[>_](fg)](fg)"
+
+[git_branch]
+style = "white"
+symbol = ' '
+format = '[$symbol$branch(:$remote_branch)]($style) '
+
+[git_status]
+style = "white"
+up_to_date = ''
+renamed = '👅'
+conflicted = '🏳'
+behind = '😰 ${count}'
+stashed = " ${count} "
+staged = '[+$count](green) '
+deleted = '󰗨 ${count}(red) '
+ahead = '[⇡${count}](lavender) '
+modified = '[ ${count}](lavender) '
+untracked = "[ ${count}](sapphire) "
+diverged = '⇕⇡${ahead_count}⇣${behind_count} '
+format = "[[($conflicted$modified$staged$renamed$deleted)](218)($ahead_behind$stashed)]($style)"
+# format = "[[($conflicted$untracked$modified$staged$renamed$deleted)](218)($ahead_behind$stashed)]($style)"
+
+[git_state]
+style = "fg"
+cherry_pick = '[🍒PICK](red)'
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+
+[git_metrics]
+disabled = false
+only_nonzero_diffs = true
+format = '[+$added](green)[-$deleted](maroon) '
+
+[cmd_duration]
+disabled = false
+style = "yellow"
+min_time = 10_000
+min_time_to_notify = 1000
+show_notifications = false
+format = "[ ⏰ $duration]($style) "
+
+[dotnet]
+symbol = ' '
+disabled = false
+format = '[$symbol($version)]($style) '
+
+[deno]
+disabled = false
+symbol = '🦕'
+format = '[$symbol($version)]($style) '
+
+[nodejs]
+symbol = ' '
+style = "green"
+disabled = false
+format = '[$symbol($version)]($style) '
+detect_files = ['node_modules', '.yarn']
+# detect_extensions = ['js', 'mjs', 'cjs', 'ts', 'mts', 'cts', 'tsx']
+detect_extensions = []
+
+[custom.since_last_commit]
+style = "mauve"
+directories = [".git"]
+format = "[󰚰 $output]($style) "
+shell = ["bash", "--norc", "--noprofile"]
+description = "Show time since last commit"
+when = 'git rev-parse --is-inside-work-tree 2> /dev/null'
+command = """deno --allow-sys --allow-run --allow-read $TS_SCRIPTS/relative-time-commit.ts"""
+
+[custom.git_host]
+style = "white"
+directories = [".git"]
+format = "[$output]($style) "
+shell = ["bash", "--norc", "--noprofile"]
+description = "Show icon of git host platform"
+when = 'git rev-parse --is-inside-work-tree 2> /dev/null'
+command = """deno --allow-sys --allow-run --allow-read $TS_SCRIPTS/github-icon.ts"""
