@@ -9,6 +9,7 @@ command_timeout = 2000
 format = """
 $os\
 $username\
+$hostname \
 $directory\
 $git_branch\
 $git_commit\
@@ -102,6 +103,7 @@ color_caution = '#f9e2af'
 
 color_os = '#cdd6f4'
 color_username = '#cba6f7'
+color_hostname = '#f2cdcd'
 color_directory = '#89b4fa'
 color_git = '#94e2d5'
 color_git_added = '#a6e3a1'
@@ -122,7 +124,7 @@ color_vimcmd_visual = '#f9e2af'
 [os]
 disabled = false
 style = "fg:color_os"
-format = '[$symbol]($style)'
+format = '[$symbol ]($style)'
 
 [os.symbols]
 Windows = "󰍲"
@@ -151,14 +153,13 @@ Pop = ""
 show_always = true
 style_user = "fg:color_username"
 style_root = "bold fg:color_danger"
-format = '[ $user ]($style)'
+format = '[$user ]($style)'
 
 [directory]
-#format = "[─](fg:separator)[](fg:directory)[](fg:icon bg:directory)[](fg:directory bg:background)[ $path](bg:background)[](fg:background)"
 style = "fg:color_directory"
 read_only_style = "fg:color_directory"
 repo_root_style = "bold fg:color_directory"
-format = "[ $path ]($style)"
+format = "[$path ]($style)"
 read_only = " "
 home_symbol = "~"
 truncation_symbol = "…/"
@@ -166,6 +167,10 @@ truncation_length = 0
 truncate_to_repo = true
 fish_style_pwd_dir_length = 0
 use_logical_path = true
+
+[hostname]
+format = '[$ssh_symbol](color_hostname) [$hostname](color_hostname) '
+ssh_symbol = "󰖟"
 
 [git_branch]
 symbol = ""
