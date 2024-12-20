@@ -1,4 +1,13 @@
-FZF_PATH="$XDG_DATA_HOME/fzf"
+# Determine if fzf is already installed using package manager.
+if [[ $(command -v fzf) == /usr/bin/fzf ]]; then
+  FZF_PATH="$XDG_DATA_HOME/fzf"
+  # Source fzf completion and key bindings provided by package manager.
+  source /usr/share/fzf/completion.zsh
+  source /usr/share/fzf/key-bindings.zsh
+else
+  # Let fzf-zsh-plugin handle installation of fzf instead.
+  FZF_PATH="$XDG_DATA_HOME/fzf"
+fi
 FZF_COLOR_SCHEME="--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
                   --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
                   --color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \

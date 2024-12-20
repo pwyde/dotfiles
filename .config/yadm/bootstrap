@@ -69,6 +69,7 @@ brew_list=("bat"
 
 # Array for AUR packages
 aur_list=("${brew_list[@]}")
+aur_list+=("fzf")
 
 # Array for fonts.
 fonts_list=("FiraCode"
