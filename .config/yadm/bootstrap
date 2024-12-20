@@ -262,10 +262,10 @@ install_fonts() {
             font_dl_url="https://github.com/ryanoasis/nerd-fonts/releases/download/${font_ver}/${font}.zip"
             # Create font directory if it does not exist.
             mkdir -p "${font_dir}"
-            print_msg "Downloading '${font}' fonts..."
+            print_msg "Downloading '${font}' font..."
             # Download fonts, extract and overwrite files such as README.md...
             curl -fLo "${temp_file}" "${font_dl_url}" --progress-bar
-            print_msg "Installing fonts..."
+            print_msg "Installing '${font}' font..."
             unzip -o -q "${temp_file}" -d "${temp_dir}"
             cp "${temp_dir}"/*.ttf "${font_dir}"
         done
