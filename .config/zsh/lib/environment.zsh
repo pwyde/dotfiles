@@ -104,6 +104,9 @@ export PASSWORD_STORE_DIR="${XDG_DATA_HOME}/pass"
 # Rust/Cargo
 export CARGO_HOME="${XDG_DATA_HOME}/cargo"
 
+# SOPS
+export SOPS_AGE_KEY_FILE="${XDG_CONFIG_HOME}/sops/age/keys.txt"
+
 # SSH
 # Set SSH_ASKPASS environment variable to ksshaskpass if present.
 [[ -n $(command -v ksshaskpass) ]] && export SSH_ASKPASS="/usr/bin/ksshaskpass"
