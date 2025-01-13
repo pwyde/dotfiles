@@ -94,6 +94,7 @@ export KDEHOME="${XDG_CONFIG_HOME}/kde"
 
 # Krew
 export KREW_ROOT="${XDG_DATA_HOME}/krew"
+export PATH="${KREW_ROOT}/bin:$PATH"
 
 # less
 export LESSHISTFILE="-" # Disable less history.
