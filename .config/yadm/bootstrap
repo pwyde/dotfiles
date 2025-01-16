@@ -147,6 +147,7 @@ install_homebrew() {
     [ -d /home/linuxbrew/.linuxbrew ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
     # Recommended steps bewlo...
     brew doctor
+    brew services
     brew install gcc
 }
 
