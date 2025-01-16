@@ -29,9 +29,9 @@ setopt NO_hist_beep            # Do not beep when accessing non-existent history
 # Set the path to the default history file.
 if zstyle -s ':zrc:history' file 'HISTFILE'; then
   # Make sure the HISTFILE does not start with a leading '~'.
-  HISTFILE="${~HISTFILE}"
+  export HISTFILE="${~HISTFILE}"
 else
-  HISTFILE="${__zsh_user_data_dir}/zsh_history"
+  export HISTFILE="${__zsh_user_data_dir}/zsh_history"
 fi
 
 # Create path to history file if it does not exist.
