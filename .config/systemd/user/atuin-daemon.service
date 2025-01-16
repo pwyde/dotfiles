@@ -1,0 +1,9 @@
+[Unit]
+Description=Background daemon unit for Atuin
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/atuin daemon
+
+[Install]
+WantedBy=default.target
