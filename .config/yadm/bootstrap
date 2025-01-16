@@ -45,15 +45,16 @@ no_color="\033[0m"
 # ARRAYS #######################################################################
 
 # Array for package dependencies.
-pkg_list=("git"
-          "zsh"
-          "vim"
-          "curl"
+pkg_list=("curl"
+          "git"
           "tree"
-          "unzip")
+          "unzip"
+          "vim"
+          "zsh")
 
 # Array for Brew packages.
-brew_list=("bat"
+brew_list=("atuin"
+           "bat"
            "bat-extras"
            "bottom"
            "duf"

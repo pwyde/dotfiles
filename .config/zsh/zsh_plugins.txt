@@ -37,6 +37,7 @@ ohmyzsh/ohmyzsh path:plugins/helm
 ohmyzsh/ohmyzsh path:plugins/k9s
 ohmyzsh/ohmyzsh path:plugins/kubectl
 ohmyzsh/ohmyzsh path:plugins/ubuntu
+atuinsh/atuin
 djui/alias-tips
 unixorn/fzf-zsh-plugin kind:defer
 Aloxaf/fzf-tab
