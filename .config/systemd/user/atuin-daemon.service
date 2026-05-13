@@ -3,7 +3,7 @@ Description=Background daemon unit for Atuin
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/atuin daemon
+ExecStart=/usr/bin/atuin daemon start
 
 [Install]
 WantedBy=default.target
