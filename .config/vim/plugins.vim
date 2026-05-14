@@ -37,6 +37,7 @@
         Plug 'mhinz/vim-startify'
         Plug 'tpope/vim-fugitive'
         Plug 'airblade/vim-gitgutter'
+        Plug 'NoahTheDuke/vim-just'
         " Plugin disabled. Vim Airline seems to take care of this.
         "Plug 'bling/vim-bufferline'
         Plug 'ctrlpvim/ctrlp.vim'
